@@ -1,0 +1,639 @@
+<HTML>
+<HEAD>
+<META http-equiv="content-type" content="text/html; charset=utf-8" />
+<TITLE>RTW Report - sphere_on_sphere.c </TITLE>
+</HEAD>
+<BODY BGCOLOR="#eeeeee" TEXT="#1122aa" ONLOAD="if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window);}">
+<P>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="100%" HEIGHT="100%"><TR><TD WIDTH="100%" VALIGN="top" BGCOLOR="#ffffff">
+<H4>File: <A HREF="file:///home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere/sphere_on_sphere.c" TARGET="rtwreport_document_frame">/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere/sphere_on_sphere.c</A></H4>
+<PRE id="RTWcode">
+<A NAME="1"><FONT COLOR="#888888"><I>    1   </I></FONT></A><FONT COLOR="#117755"><I>/*</I></FONT>
+<A NAME="2"><FONT COLOR="#888888"><I>    2   </I></FONT></A><FONT COLOR="#117755"><I> * sphere_on_sphere.c</I></FONT>
+<A NAME="3"><FONT COLOR="#888888"><I>    3   </I></FONT></A><FONT COLOR="#117755"><I> *</I></FONT>
+<A NAME="4"><FONT COLOR="#888888"><I>    4   </I></FONT></A><FONT COLOR="#117755"><I> * Code generation for function 'sphere_on_sphere'</I></FONT>
+<A NAME="5"><FONT COLOR="#888888"><I>    5   </I></FONT></A><FONT COLOR="#117755"><I> *</I></FONT>
+<A NAME="6"><FONT COLOR="#888888"><I>    6   </I></FONT></A><FONT COLOR="#117755"><I> * C source code generated on: Sat Oct 18 11:59:48 2014</I></FONT>
+<A NAME="7"><FONT COLOR="#888888"><I>    7   </I></FONT></A><FONT COLOR="#117755"><I> *</I></FONT>
+<A NAME="8"><FONT COLOR="#888888"><I>    8   </I></FONT></A><FONT COLOR="#117755"><I> */</I></FONT>
+<A NAME="9"><FONT COLOR="#888888"><I>    9   </I></FONT></A>
+<A NAME="10"><FONT COLOR="#888888"><I>   10   </I></FONT></A><FONT COLOR="#117755"><I>/* Include files */</I></FONT>
+<A NAME="11"><FONT COLOR="#888888"><I>   11   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;rt_nonfinite.h&quot;</FONT>
+<A NAME="12"><FONT COLOR="#888888"><I>   12   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;sphere_on_sphere.h&quot;</FONT>
+<A NAME="13"><FONT COLOR="#888888"><I>   13   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;Body.h&quot;</FONT>
+<A NAME="14"><FONT COLOR="#888888"><I>   14   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;Body_sphere.h&quot;</FONT>
+<A NAME="15"><FONT COLOR="#888888"><I>   15   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;Simulator.h&quot;</FONT>
+<A NAME="16"><FONT COLOR="#888888"><I>   16   </I></FONT></A>
+<A NAME="17"><FONT COLOR="#888888"><I>   17   </I></FONT></A><FONT COLOR="#117755"><I>/* Type Definitions */</I></FONT>
+<A NAME="18"><FONT COLOR="#888888"><I>   18   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>ifndef</B></FONT> struct_stb3atYu6PXQt604qRfuYIG
+<A NAME="19"><FONT COLOR="#888888"><I>   19   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>define</B></FONT> struct_stb3atYu6PXQt604qRfuYIG
+<A NAME="20"><FONT COLOR="#888888"><I>   20   </I></FONT></A>
+<A NAME="21"><FONT COLOR="#888888"><I>   21   </I></FONT></A><FONT COLOR="#112266"><B>typedef</B></FONT> <FONT COLOR="#112266"><B>struct</B></FONT> stb3atYu6PXQt604qRfuYIG
+<A NAME="22"><FONT COLOR="#888888"><I>   22   </I></FONT></A><B>{</B>
+<A NAME="23"><FONT COLOR="#888888"><I>   23   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> name[4];
+<A NAME="24"><FONT COLOR="#888888"><I>   24   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> type[7];
+<A NAME="25"><FONT COLOR="#888888"><I>   25   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> bodyID;
+<A NAME="26"><FONT COLOR="#888888"><I>   26   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> bodyContactID;
+<A NAME="27"><FONT COLOR="#888888"><I>   27   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> bodyDynamicID;
+<A NAME="28"><FONT COLOR="#888888"><I>   28   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_boolean_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_boolean_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">boolean_T</FONT></A> dynamic;
+<A NAME="29"><FONT COLOR="#888888"><I>   29   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_boolean_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_boolean_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">boolean_T</FONT></A> active;
+<A NAME="30"><FONT COLOR="#888888"><I>   30   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> mass;
+<A NAME="31"><FONT COLOR="#888888"><I>   31   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> u[3];
+<A NAME="32"><FONT COLOR="#888888"><I>   32   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> quat[4];
+<A NAME="33"><FONT COLOR="#888888"><I>   33   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> J[9];
+<A NAME="34"><FONT COLOR="#888888"><I>   34   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> nu[6];
+<A NAME="35"><FONT COLOR="#888888"><I>   35   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> Fext[6];
+<A NAME="36"><FONT COLOR="#888888"><I>   36   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> Aext[6];
+<A NAME="37"><FONT COLOR="#888888"><I>   37   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> mu;
+<A NAME="38"><FONT COLOR="#888888"><I>   38   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> numJoints;
+<A NAME="39"><FONT COLOR="#888888"><I>   39   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_boolean_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_boolean_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">boolean_T</FONT></A> visible;
+<A NAME="40"><FONT COLOR="#888888"><I>   40   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> color[3];
+<A NAME="41"><FONT COLOR="#888888"><I>   41   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> facealpha;
+<A NAME="42"><FONT COLOR="#888888"><I>   42   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> edgealpha;
+<A NAME="43"><FONT COLOR="#888888"><I>   43   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> AABB_min[3];
+<A NAME="44"><FONT COLOR="#888888"><I>   44   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> AABB_max[3];
+<A NAME="45"><FONT COLOR="#888888"><I>   45   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_boolean_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_boolean_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">boolean_T</FONT></A> collides;
+<A NAME="46"><FONT COLOR="#888888"><I>   46   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> radius;
+<A NAME="47"><FONT COLOR="#888888"><I>   47   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> num_sphere_verts;
+<A NAME="48"><FONT COLOR="#888888"><I>   48   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> height;
+<A NAME="49"><FONT COLOR="#888888"><I>   49   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> plane_normal[9];
+<A NAME="50"><FONT COLOR="#888888"><I>   50   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> num_verts;
+<A NAME="51"><FONT COLOR="#888888"><I>   51   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> num_edges;
+<A NAME="52"><FONT COLOR="#888888"><I>   52   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> num_faces;
+<A NAME="53"><FONT COLOR="#888888"><I>   53   </I></FONT></A><B>}</B> <A HREF="sphere_on_sphere_c.html#type_c_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_struct_T</FONT></A>;
+<A NAME="54"><FONT COLOR="#888888"><I>   54   </I></FONT></A>
+<A NAME="55"><FONT COLOR="#888888"><I>   55   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>else</B></FONT>
+<A NAME="56"><FONT COLOR="#888888"><I>   56   </I></FONT></A>
+<A NAME="57"><FONT COLOR="#888888"><I>   57   </I></FONT></A><FONT COLOR="#112266"><B>typedef</B></FONT> <FONT COLOR="#112266"><B>struct</B></FONT> stb3atYu6PXQt604qRfuYIG <A NAME="type_c_struct_T">c_struct_T</A>;
+<A NAME="58"><FONT COLOR="#888888"><I>   58   </I></FONT></A>
+<A NAME="59"><FONT COLOR="#888888"><I>   59   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>endif</B></FONT>
+<A NAME="60"><FONT COLOR="#888888"><I>   60   </I></FONT></A>
+<A NAME="61"><FONT COLOR="#888888"><I>   61   </I></FONT></A><FONT COLOR="#117755"><I>/* Named Constants */</I></FONT>
+<A NAME="62"><FONT COLOR="#888888"><I>   62   </I></FONT></A>
+<A NAME="63"><FONT COLOR="#888888"><I>   63   </I></FONT></A><FONT COLOR="#117755"><I>/* Variable Declarations */</I></FONT>
+<A NAME="64"><FONT COLOR="#888888"><I>   64   </I></FONT></A>
+<A NAME="65"><FONT COLOR="#888888"><I>   65   </I></FONT></A><FONT COLOR="#117755"><I>/* Variable Definitions */</I></FONT>
+<A NAME="66"><FONT COLOR="#888888"><I>   66   </I></FONT></A>
+<A NAME="67"><FONT COLOR="#888888"><I>   67   </I></FONT></A><FONT COLOR="#117755"><I>/* Function Declarations */</I></FONT>
+<A NAME="68"><FONT COLOR="#888888"><I>   68   </I></FONT></A>
+<A NAME="69"><FONT COLOR="#888888"><I>   69   </I></FONT></A><FONT COLOR="#117755"><I>/* Function Definitions */</I></FONT>
+<A NAME="70"><FONT COLOR="#888888"><I>   70   </I></FONT></A><A HREF="sphere_on_sphere_types_h.html#type_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">struct_T</FONT></A> <A NAME="fcn_sphere_on_sphere">sphere_on_sphere</A>(<FONT COLOR="#112266"><B>void</B></FONT>)
+<A NAME="71"><FONT COLOR="#888888"><I>   71   </I></FONT></A><B>{</B>
+<A NAME="72"><FONT COLOR="#888888"><I>   72   </I></FONT></A>  <A HREF="sphere_on_sphere_types_h.html#type_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">struct_T</FONT></A> sim;
+<A NAME="73"><FONT COLOR="#888888"><I>   73   </I></FONT></A>  <A HREF="sphere_on_sphere_types_h.html#type_struct_T_size" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_struct_T_size');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">struct_T_size</FONT></A> expl_temp_elems_sizes;
+<A NAME="74"><FONT COLOR="#888888"><I>   74   </I></FONT></A>  <A HREF="sphere_on_sphere_types_h.html#type_d_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_d_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">d_struct_T</FONT></A> expl_temp_data;
+<A NAME="75"><FONT COLOR="#888888"><I>   75   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> s1_name[4];
+<A NAME="76"><FONT COLOR="#888888"><I>   76   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_int32_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_int32_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">int32_T</FONT></A> i0;
+<A NAME="77"><FONT COLOR="#888888"><I>   77   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_int32_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_int32_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">int32_T</FONT></A> i;
+<A NAME="78"><FONT COLOR="#888888"><I>   78   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> s1_type_data[7];
+<A NAME="79"><FONT COLOR="#888888"><I>   79   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s1_quat[4];
+<A NAME="80"><FONT COLOR="#888888"><I>   80   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s1_J[9];
+<A NAME="81"><FONT COLOR="#888888"><I>   81   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s1_nu[6];
+<A NAME="82"><FONT COLOR="#888888"><I>   82   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s1_Fext[6];
+<A NAME="83"><FONT COLOR="#888888"><I>   83   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s1_Aext[6];
+<A NAME="84"><FONT COLOR="#888888"><I>   84   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s1_AABB_min[3];
+<A NAME="85"><FONT COLOR="#888888"><I>   85   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s1_AABB_max[3];
+<A NAME="86"><FONT COLOR="#888888"><I>   86   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s1_plane_normal[3];
+<A NAME="87"><FONT COLOR="#888888"><I>   87   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_int8_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_int8_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">int8_T</FONT></A> s1_u[3];
+<A NAME="88"><FONT COLOR="#888888"><I>   88   </I></FONT></A>  <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> <A HREF="rtwtypes_h.html#type_int8_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_int8_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">int8_T</FONT></A> iv0[3] = <B>{</B> 0, 0, -1 <B>}</B>;
+<A NAME="89"><FONT COLOR="#888888"><I>   89   </I></FONT></A>
+<A NAME="90"><FONT COLOR="#888888"><I>   90   </I></FONT></A>  <A HREF="sphere_on_sphere_types_h.html#type_struct_T_size" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_struct_T_size');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">struct_T_size</FONT></A> b_expl_temp_elems_sizes;
+<A NAME="91"><FONT COLOR="#888888"><I>   91   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> s2_name[4];
+<A NAME="92"><FONT COLOR="#888888"><I>   92   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> s2_type_data[7];
+<A NAME="93"><FONT COLOR="#888888"><I>   93   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_quat[4];
+<A NAME="94"><FONT COLOR="#888888"><I>   94   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_J[9];
+<A NAME="95"><FONT COLOR="#888888"><I>   95   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_nu[6];
+<A NAME="96"><FONT COLOR="#888888"><I>   96   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_Fext[6];
+<A NAME="97"><FONT COLOR="#888888"><I>   97   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_Aext[6];
+<A NAME="98"><FONT COLOR="#888888"><I>   98   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_color[3];
+<A NAME="99"><FONT COLOR="#888888"><I>   99   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_AABB_min[3];
+<A NAME="100"><FONT COLOR="#888888"><I>  100   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_AABB_max[3];
+<A NAME="101"><FONT COLOR="#888888"><I>  101   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_plane_normal[3];
+<A NAME="102"><FONT COLOR="#888888"><I>  102   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> s2_u[3];
+<A NAME="103"><FONT COLOR="#888888"><I>  103   </I></FONT></A>  <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> dv0[3] = <B>{</B> -0.05, 0.05, 1.25 <B>}</B>;
+<A NAME="104"><FONT COLOR="#888888"><I>  104   </I></FONT></A>
+<A NAME="105"><FONT COLOR="#888888"><I>  105   </I></FONT></A>  <A HREF="sphere_on_sphere_types_h.html#type_b_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_b_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">b_struct_T</FONT></A> expl_temp;
+<A NAME="106"><FONT COLOR="#888888"><I>  106   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> t2_name[4];
+<A NAME="107"><FONT COLOR="#888888"><I>  107   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> t2_type[7];
+<A NAME="108"><FONT COLOR="#888888"><I>  108   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_u[3];
+<A NAME="109"><FONT COLOR="#888888"><I>  109   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_quat[4];
+<A NAME="110"><FONT COLOR="#888888"><I>  110   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_J[9];
+<A NAME="111"><FONT COLOR="#888888"><I>  111   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_nu[6];
+<A NAME="112"><FONT COLOR="#888888"><I>  112   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_Fext[6];
+<A NAME="113"><FONT COLOR="#888888"><I>  113   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_Aext[6];
+<A NAME="114"><FONT COLOR="#888888"><I>  114   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_color[3];
+<A NAME="115"><FONT COLOR="#888888"><I>  115   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_AABB_min[3];
+<A NAME="116"><FONT COLOR="#888888"><I>  116   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_AABB_max[3];
+<A NAME="117"><FONT COLOR="#888888"><I>  117   </I></FONT></A>  <A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A> t2_plane_normal[3];
+<A NAME="118"><FONT COLOR="#888888"><I>  118   </I></FONT></A>  <A HREF="sphere_on_sphere_c.html#type_c_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_struct_T</FONT></A> P_data;
+<A NAME="119"><FONT COLOR="#888888"><I>  119   </I></FONT></A>  <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> <A HREF="rtwtypes_h.html#type_char_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_char_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">char_T</FONT></A> cv0[5] = <B>{</B> <FONT COLOR="#1122ff">'p'</FONT>, <FONT COLOR="#1122ff">'l'</FONT>, <FONT COLOR="#1122ff">'a'</FONT>, <FONT COLOR="#1122ff">'n'</FONT>, <FONT COLOR="#1122ff">'e'</FONT> <B>}</B>;
+<A NAME="120"><FONT COLOR="#888888"><I>  120   </I></FONT></A>
+<A NAME="121"><FONT COLOR="#888888"><I>  121   </I></FONT></A>  <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> <A HREF="rtwtypes_h.html#type_int8_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_int8_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">int8_T</FONT></A> point[3] = <B>{</B> 0, 0, -3 <B>}</B>;
+<A NAME="122"><FONT COLOR="#888888"><I>  122   </I></FONT></A>
+<A NAME="123"><FONT COLOR="#888888"><I>  123   </I></FONT></A>  <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> <A HREF="rtwtypes_h.html#type_int8_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_int8_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">int8_T</FONT></A> y[3] = <B>{</B> 0, 0, 1 <B>}</B>;
+<A NAME="124"><FONT COLOR="#888888"><I>  124   </I></FONT></A>
+<A NAME="125"><FONT COLOR="#888888"><I>  125   </I></FONT></A>  <A HREF="sphere_on_sphere_c.html#type_c_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_struct_T</FONT></A> tmp_data;
+<A NAME="126"><FONT COLOR="#888888"><I>  126   </I></FONT></A>  <A HREF="sphere_on_sphere_c.html#type_c_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_struct_T</FONT></A> b_tmp_data;
+<A NAME="127"><FONT COLOR="#888888"><I>  127   </I></FONT></A>  <A HREF="sphere_on_sphere_c.html#type_c_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_c_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">c_struct_T</FONT></A> body_data[3];
+<A NAME="128"><FONT COLOR="#888888"><I>  128   </I></FONT></A>
+<A NAME="129"><FONT COLOR="#888888"><I>  129   </I></FONT></A>  <FONT COLOR="#117755"><I>/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */</I></FONT>
+<A NAME="130"><FONT COLOR="#888888"><I>  130   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  RPI-MATLAB-Simulator */</I></FONT>
+<A NAME="131"><FONT COLOR="#888888"><I>  131   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  http://code.google.com/p/rpi-matlab-simulator/ */</I></FONT>
+<A NAME="132"><FONT COLOR="#888888"><I>  132   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  */</I></FONT>
+<A NAME="133"><FONT COLOR="#888888"><I>  133   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Initialize simulator */</I></FONT>
+<A NAME="134"><FONT COLOR="#888888"><I>  134   </I></FONT></A>  <A HREF="Simulator_c.html#fcn_Simulator" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Simulator');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">Simulator</FONT></A>(0.01, &amp;sim);
+<A NAME="135"><FONT COLOR="#888888"><I>  135   </I></FONT></A>
+<A NAME="136"><FONT COLOR="#888888"><I>  136   </I></FONT></A>  <FONT COLOR="#117755"><I>/* sim.drawContacts = true; */</I></FONT>
+<A NAME="137"><FONT COLOR="#888888"><I>  137   </I></FONT></A>  sim.MAX_STEP = 500.0;
+<A NAME="138"><FONT COLOR="#888888"><I>  138   </I></FONT></A>  sim.draw = FALSE;
+<A NAME="139"><FONT COLOR="#888888"><I>  139   </I></FONT></A>
+<A NAME="140"><FONT COLOR="#888888"><I>  140   </I></FONT></A>  <FONT COLOR="#117755"><I>/* sim.H_dynamics = @LCPdynamics;  */</I></FONT>
+<A NAME="141"><FONT COLOR="#888888"><I>  141   </I></FONT></A>  <FONT COLOR="#117755"><I>/* sim.H_solver = @Lemke; */</I></FONT>
+<A NAME="142"><FONT COLOR="#888888"><I>  142   </I></FONT></A>  <FONT COLOR="#117755"><I>/* sim.H_dynamics = @mLCPdynamics;  */</I></FONT>
+<A NAME="143"><FONT COLOR="#888888"><I>  143   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  A sphere */</I></FONT>
+<A NAME="144"><FONT COLOR="#888888"><I>  144   </I></FONT></A>  <A HREF="Body_sphere_c.html#fcn_Body_sphere" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Body_sphere');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">Body_sphere</FONT></A>(&amp;expl_temp_data, &amp;expl_temp_elems_sizes);
+<A NAME="145"><FONT COLOR="#888888"><I>  145   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 4; i0++) <B>{</B>
+<A NAME="146"><FONT COLOR="#888888"><I>  146   </I></FONT></A>    s1_name[i0] = expl_temp_data.name[i0];
+<A NAME="147"><FONT COLOR="#888888"><I>  147   </I></FONT></A>  <B>}</B>
+<A NAME="148"><FONT COLOR="#888888"><I>  148   </I></FONT></A>
+<A NAME="149"><FONT COLOR="#888888"><I>  149   </I></FONT></A>  i = expl_temp_elems_sizes.type[0] * expl_temp_elems_sizes.type[1] - 1;
+<A NAME="150"><FONT COLOR="#888888"><I>  150   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= i; i0++) <B>{</B>
+<A NAME="151"><FONT COLOR="#888888"><I>  151   </I></FONT></A>    s1_type_data[i0] = expl_temp_data.type[i0];
+<A NAME="152"><FONT COLOR="#888888"><I>  152   </I></FONT></A>  <B>}</B>
+<A NAME="153"><FONT COLOR="#888888"><I>  153   </I></FONT></A>
+<A NAME="154"><FONT COLOR="#888888"><I>  154   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 4; i++) <B>{</B>
+<A NAME="155"><FONT COLOR="#888888"><I>  155   </I></FONT></A>    s1_quat[i] = expl_temp_data.quat[i];
+<A NAME="156"><FONT COLOR="#888888"><I>  156   </I></FONT></A>  <B>}</B>
+<A NAME="157"><FONT COLOR="#888888"><I>  157   </I></FONT></A>
+<A NAME="158"><FONT COLOR="#888888"><I>  158   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 9; i0++) <B>{</B>
+<A NAME="159"><FONT COLOR="#888888"><I>  159   </I></FONT></A>    s1_J[i0] = expl_temp_data.J[i0];
+<A NAME="160"><FONT COLOR="#888888"><I>  160   </I></FONT></A>  <B>}</B>
+<A NAME="161"><FONT COLOR="#888888"><I>  161   </I></FONT></A>
+<A NAME="162"><FONT COLOR="#888888"><I>  162   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 6; i++) <B>{</B>
+<A NAME="163"><FONT COLOR="#888888"><I>  163   </I></FONT></A>    s1_nu[i] = expl_temp_data.nu[i];
+<A NAME="164"><FONT COLOR="#888888"><I>  164   </I></FONT></A>    s1_Fext[i] = expl_temp_data.Fext[i];
+<A NAME="165"><FONT COLOR="#888888"><I>  165   </I></FONT></A>    s1_Aext[i] = expl_temp_data.Aext[i];
+<A NAME="166"><FONT COLOR="#888888"><I>  166   </I></FONT></A>  <B>}</B>
+<A NAME="167"><FONT COLOR="#888888"><I>  167   </I></FONT></A>
+<A NAME="168"><FONT COLOR="#888888"><I>  168   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="169"><FONT COLOR="#888888"><I>  169   </I></FONT></A>    s1_AABB_min[i0] = expl_temp_data.AABB_min[i0];
+<A NAME="170"><FONT COLOR="#888888"><I>  170   </I></FONT></A>    s1_AABB_max[i0] = expl_temp_data.AABB_max[i0];
+<A NAME="171"><FONT COLOR="#888888"><I>  171   </I></FONT></A>    s1_plane_normal[i0] = expl_temp_data.plane_normal[i0];
+<A NAME="172"><FONT COLOR="#888888"><I>  172   </I></FONT></A>    s1_u[i0] = iv0[i0];
+<A NAME="173"><FONT COLOR="#888888"><I>  173   </I></FONT></A>  <B>}</B>
+<A NAME="174"><FONT COLOR="#888888"><I>  174   </I></FONT></A>
+<A NAME="175"><FONT COLOR="#888888"><I>  175   </I></FONT></A>  <A HREF="Body_sphere_c.html#fcn_b_Body_sphere" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_b_Body_sphere');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">b_Body_sphere</FONT></A>(&amp;expl_temp_data, &amp;b_expl_temp_elems_sizes);
+<A NAME="176"><FONT COLOR="#888888"><I>  176   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 4; i0++) <B>{</B>
+<A NAME="177"><FONT COLOR="#888888"><I>  177   </I></FONT></A>    s2_name[i0] = expl_temp_data.name[i0];
+<A NAME="178"><FONT COLOR="#888888"><I>  178   </I></FONT></A>  <B>}</B>
+<A NAME="179"><FONT COLOR="#888888"><I>  179   </I></FONT></A>
+<A NAME="180"><FONT COLOR="#888888"><I>  180   </I></FONT></A>  i = b_expl_temp_elems_sizes.type[0] * b_expl_temp_elems_sizes.type[1] - 1;
+<A NAME="181"><FONT COLOR="#888888"><I>  181   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= i; i0++) <B>{</B>
+<A NAME="182"><FONT COLOR="#888888"><I>  182   </I></FONT></A>    s2_type_data[i0] = expl_temp_data.type[i0];
+<A NAME="183"><FONT COLOR="#888888"><I>  183   </I></FONT></A>  <B>}</B>
+<A NAME="184"><FONT COLOR="#888888"><I>  184   </I></FONT></A>
+<A NAME="185"><FONT COLOR="#888888"><I>  185   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 4; i++) <B>{</B>
+<A NAME="186"><FONT COLOR="#888888"><I>  186   </I></FONT></A>    s2_quat[i] = expl_temp_data.quat[i];
+<A NAME="187"><FONT COLOR="#888888"><I>  187   </I></FONT></A>  <B>}</B>
+<A NAME="188"><FONT COLOR="#888888"><I>  188   </I></FONT></A>
+<A NAME="189"><FONT COLOR="#888888"><I>  189   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 9; i0++) <B>{</B>
+<A NAME="190"><FONT COLOR="#888888"><I>  190   </I></FONT></A>    s2_J[i0] = expl_temp_data.J[i0];
+<A NAME="191"><FONT COLOR="#888888"><I>  191   </I></FONT></A>  <B>}</B>
+<A NAME="192"><FONT COLOR="#888888"><I>  192   </I></FONT></A>
+<A NAME="193"><FONT COLOR="#888888"><I>  193   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 6; i++) <B>{</B>
+<A NAME="194"><FONT COLOR="#888888"><I>  194   </I></FONT></A>    s2_nu[i] = expl_temp_data.nu[i];
+<A NAME="195"><FONT COLOR="#888888"><I>  195   </I></FONT></A>    s2_Fext[i] = expl_temp_data.Fext[i];
+<A NAME="196"><FONT COLOR="#888888"><I>  196   </I></FONT></A>    s2_Aext[i] = expl_temp_data.Aext[i];
+<A NAME="197"><FONT COLOR="#888888"><I>  197   </I></FONT></A>  <B>}</B>
+<A NAME="198"><FONT COLOR="#888888"><I>  198   </I></FONT></A>
+<A NAME="199"><FONT COLOR="#888888"><I>  199   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="200"><FONT COLOR="#888888"><I>  200   </I></FONT></A>    s2_color[i0] = expl_temp_data.color[i0];
+<A NAME="201"><FONT COLOR="#888888"><I>  201   </I></FONT></A>    s2_AABB_min[i0] = expl_temp_data.AABB_min[i0];
+<A NAME="202"><FONT COLOR="#888888"><I>  202   </I></FONT></A>    s2_AABB_max[i0] = expl_temp_data.AABB_max[i0];
+<A NAME="203"><FONT COLOR="#888888"><I>  203   </I></FONT></A>    s2_plane_normal[i0] = expl_temp_data.plane_normal[i0];
+<A NAME="204"><FONT COLOR="#888888"><I>  204   </I></FONT></A>    s2_u[i0] = dv0[i0];
+<A NAME="205"><FONT COLOR="#888888"><I>  205   </I></FONT></A>  <B>}</B>
+<A NAME="206"><FONT COLOR="#888888"><I>  206   </I></FONT></A>
+<A NAME="207"><FONT COLOR="#888888"><I>  207   </I></FONT></A>  <A HREF="Body_c.html#fcn_Body" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Body');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">Body</FONT></A>(&amp;expl_temp);
+<A NAME="208"><FONT COLOR="#888888"><I>  208   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 4; i0++) <B>{</B>
+<A NAME="209"><FONT COLOR="#888888"><I>  209   </I></FONT></A>    t2_name[i0] = expl_temp.name[i0];
+<A NAME="210"><FONT COLOR="#888888"><I>  210   </I></FONT></A>  <B>}</B>
+<A NAME="211"><FONT COLOR="#888888"><I>  211   </I></FONT></A>
+<A NAME="212"><FONT COLOR="#888888"><I>  212   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 7; i0++) <B>{</B>
+<A NAME="213"><FONT COLOR="#888888"><I>  213   </I></FONT></A>    t2_type[i0] = expl_temp.type[i0];
+<A NAME="214"><FONT COLOR="#888888"><I>  214   </I></FONT></A>  <B>}</B>
+<A NAME="215"><FONT COLOR="#888888"><I>  215   </I></FONT></A>
+<A NAME="216"><FONT COLOR="#888888"><I>  216   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 3; i++) <B>{</B>
+<A NAME="217"><FONT COLOR="#888888"><I>  217   </I></FONT></A>    t2_u[i] = expl_temp.u[i];
+<A NAME="218"><FONT COLOR="#888888"><I>  218   </I></FONT></A>  <B>}</B>
+<A NAME="219"><FONT COLOR="#888888"><I>  219   </I></FONT></A>
+<A NAME="220"><FONT COLOR="#888888"><I>  220   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 4; i++) <B>{</B>
+<A NAME="221"><FONT COLOR="#888888"><I>  221   </I></FONT></A>    t2_quat[i] = expl_temp.quat[i];
+<A NAME="222"><FONT COLOR="#888888"><I>  222   </I></FONT></A>  <B>}</B>
+<A NAME="223"><FONT COLOR="#888888"><I>  223   </I></FONT></A>
+<A NAME="224"><FONT COLOR="#888888"><I>  224   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 9; i0++) <B>{</B>
+<A NAME="225"><FONT COLOR="#888888"><I>  225   </I></FONT></A>    t2_J[i0] = expl_temp.J[i0];
+<A NAME="226"><FONT COLOR="#888888"><I>  226   </I></FONT></A>  <B>}</B>
+<A NAME="227"><FONT COLOR="#888888"><I>  227   </I></FONT></A>
+<A NAME="228"><FONT COLOR="#888888"><I>  228   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 6; i++) <B>{</B>
+<A NAME="229"><FONT COLOR="#888888"><I>  229   </I></FONT></A>    t2_nu[i] = expl_temp.nu[i];
+<A NAME="230"><FONT COLOR="#888888"><I>  230   </I></FONT></A>    t2_Fext[i] = expl_temp.Fext[i];
+<A NAME="231"><FONT COLOR="#888888"><I>  231   </I></FONT></A>    t2_Aext[i] = expl_temp.Aext[i];
+<A NAME="232"><FONT COLOR="#888888"><I>  232   </I></FONT></A>  <B>}</B>
+<A NAME="233"><FONT COLOR="#888888"><I>  233   </I></FONT></A>
+<A NAME="234"><FONT COLOR="#888888"><I>  234   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="235"><FONT COLOR="#888888"><I>  235   </I></FONT></A>    t2_color[i0] = expl_temp.color[i0];
+<A NAME="236"><FONT COLOR="#888888"><I>  236   </I></FONT></A>    t2_AABB_min[i0] = expl_temp.AABB_min[i0];
+<A NAME="237"><FONT COLOR="#888888"><I>  237   </I></FONT></A>    t2_AABB_max[i0] = expl_temp.AABB_max[i0];
+<A NAME="238"><FONT COLOR="#888888"><I>  238   </I></FONT></A>    t2_plane_normal[i0] = expl_temp.plane_normal[i0];
+<A NAME="239"><FONT COLOR="#888888"><I>  239   </I></FONT></A>  <B>}</B>
+<A NAME="240"><FONT COLOR="#888888"><I>  240   </I></FONT></A>
+<A NAME="241"><FONT COLOR="#888888"><I>  241   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 4; i0++) <B>{</B>
+<A NAME="242"><FONT COLOR="#888888"><I>  242   </I></FONT></A>    P_data.name[i0] = t2_name[i0];
+<A NAME="243"><FONT COLOR="#888888"><I>  243   </I></FONT></A>  <B>}</B>
+<A NAME="244"><FONT COLOR="#888888"><I>  244   </I></FONT></A>
+<A NAME="245"><FONT COLOR="#888888"><I>  245   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 7; i0++) <B>{</B>
+<A NAME="246"><FONT COLOR="#888888"><I>  246   </I></FONT></A>    P_data.type[i0] = t2_type[i0];
+<A NAME="247"><FONT COLOR="#888888"><I>  247   </I></FONT></A>  <B>}</B>
+<A NAME="248"><FONT COLOR="#888888"><I>  248   </I></FONT></A>
+<A NAME="249"><FONT COLOR="#888888"><I>  249   </I></FONT></A>  P_data.bodyID = 0.0;
+<A NAME="250"><FONT COLOR="#888888"><I>  250   </I></FONT></A>  P_data.bodyContactID = 0.0;
+<A NAME="251"><FONT COLOR="#888888"><I>  251   </I></FONT></A>  P_data.bodyDynamicID = 0.0;
+<A NAME="252"><FONT COLOR="#888888"><I>  252   </I></FONT></A>  P_data.dynamic = TRUE;
+<A NAME="253"><FONT COLOR="#888888"><I>  253   </I></FONT></A>  P_data.active = FALSE;
+<A NAME="254"><FONT COLOR="#888888"><I>  254   </I></FONT></A>  P_data.mass = 1.0;
+<A NAME="255"><FONT COLOR="#888888"><I>  255   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 3; i++) <B>{</B>
+<A NAME="256"><FONT COLOR="#888888"><I>  256   </I></FONT></A>    P_data.u[i] = t2_u[i];
+<A NAME="257"><FONT COLOR="#888888"><I>  257   </I></FONT></A>  <B>}</B>
+<A NAME="258"><FONT COLOR="#888888"><I>  258   </I></FONT></A>
+<A NAME="259"><FONT COLOR="#888888"><I>  259   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 4; i++) <B>{</B>
+<A NAME="260"><FONT COLOR="#888888"><I>  260   </I></FONT></A>    P_data.quat[i] = t2_quat[i];
+<A NAME="261"><FONT COLOR="#888888"><I>  261   </I></FONT></A>  <B>}</B>
+<A NAME="262"><FONT COLOR="#888888"><I>  262   </I></FONT></A>
+<A NAME="263"><FONT COLOR="#888888"><I>  263   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 9; i0++) <B>{</B>
+<A NAME="264"><FONT COLOR="#888888"><I>  264   </I></FONT></A>    P_data.J[i0] = t2_J[i0];
+<A NAME="265"><FONT COLOR="#888888"><I>  265   </I></FONT></A>  <B>}</B>
+<A NAME="266"><FONT COLOR="#888888"><I>  266   </I></FONT></A>
+<A NAME="267"><FONT COLOR="#888888"><I>  267   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 6; i++) <B>{</B>
+<A NAME="268"><FONT COLOR="#888888"><I>  268   </I></FONT></A>    P_data.nu[i] = t2_nu[i];
+<A NAME="269"><FONT COLOR="#888888"><I>  269   </I></FONT></A>    P_data.Fext[i] = t2_Fext[i];
+<A NAME="270"><FONT COLOR="#888888"><I>  270   </I></FONT></A>    P_data.Aext[i] = t2_Aext[i];
+<A NAME="271"><FONT COLOR="#888888"><I>  271   </I></FONT></A>  <B>}</B>
+<A NAME="272"><FONT COLOR="#888888"><I>  272   </I></FONT></A>
+<A NAME="273"><FONT COLOR="#888888"><I>  273   </I></FONT></A>  P_data.mu = 0.5;
+<A NAME="274"><FONT COLOR="#888888"><I>  274   </I></FONT></A>  P_data.numJoints = 0.0;
+<A NAME="275"><FONT COLOR="#888888"><I>  275   </I></FONT></A>  P_data.visible = TRUE;
+<A NAME="276"><FONT COLOR="#888888"><I>  276   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="277"><FONT COLOR="#888888"><I>  277   </I></FONT></A>    P_data.color[i0] = t2_color[i0];
+<A NAME="278"><FONT COLOR="#888888"><I>  278   </I></FONT></A>  <B>}</B>
+<A NAME="279"><FONT COLOR="#888888"><I>  279   </I></FONT></A>
+<A NAME="280"><FONT COLOR="#888888"><I>  280   </I></FONT></A>  P_data.facealpha = 0.7;
+<A NAME="281"><FONT COLOR="#888888"><I>  281   </I></FONT></A>  P_data.edgealpha = 1.0;
+<A NAME="282"><FONT COLOR="#888888"><I>  282   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="283"><FONT COLOR="#888888"><I>  283   </I></FONT></A>    P_data.AABB_min[i0] = t2_AABB_min[i0];
+<A NAME="284"><FONT COLOR="#888888"><I>  284   </I></FONT></A>    P_data.AABB_max[i0] = t2_AABB_max[i0];
+<A NAME="285"><FONT COLOR="#888888"><I>  285   </I></FONT></A>  <B>}</B>
+<A NAME="286"><FONT COLOR="#888888"><I>  286   </I></FONT></A>
+<A NAME="287"><FONT COLOR="#888888"><I>  287   </I></FONT></A>  P_data.collides = TRUE;
+<A NAME="288"><FONT COLOR="#888888"><I>  288   </I></FONT></A>  P_data.radius = 1.0;
+<A NAME="289"><FONT COLOR="#888888"><I>  289   </I></FONT></A>  P_data.num_sphere_verts = 7.0;
+<A NAME="290"><FONT COLOR="#888888"><I>  290   </I></FONT></A>  P_data.height = 1.0;
+<A NAME="291"><FONT COLOR="#888888"><I>  291   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="292"><FONT COLOR="#888888"><I>  292   </I></FONT></A>    P_data.plane_normal[i0] = t2_plane_normal[i0];
+<A NAME="293"><FONT COLOR="#888888"><I>  293   </I></FONT></A>  <B>}</B>
+<A NAME="294"><FONT COLOR="#888888"><I>  294   </I></FONT></A>
+<A NAME="295"><FONT COLOR="#888888"><I>  295   </I></FONT></A>  P_data.num_verts = 0.0;
+<A NAME="296"><FONT COLOR="#888888"><I>  296   </I></FONT></A>  P_data.num_edges = 0.0;
+<A NAME="297"><FONT COLOR="#888888"><I>  297   </I></FONT></A>  P_data.num_faces = 0.0;
+<A NAME="298"><FONT COLOR="#888888"><I>  298   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 5; i0++) <B>{</B>
+<A NAME="299"><FONT COLOR="#888888"><I>  299   </I></FONT></A>    P_data.type[i0] = cv0[i0];
+<A NAME="300"><FONT COLOR="#888888"><I>  300   </I></FONT></A>  <B>}</B>
+<A NAME="301"><FONT COLOR="#888888"><I>  301   </I></FONT></A>
+<A NAME="302"><FONT COLOR="#888888"><I>  302   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="303"><FONT COLOR="#888888"><I>  303   </I></FONT></A>    P_data.color[i0] = 0.6;
+<A NAME="304"><FONT COLOR="#888888"><I>  304   </I></FONT></A>  <B>}</B>
+<A NAME="305"><FONT COLOR="#888888"><I>  305   </I></FONT></A>
+<A NAME="306"><FONT COLOR="#888888"><I>  306   </I></FONT></A>  P_data.dynamic = FALSE;
+<A NAME="307"><FONT COLOR="#888888"><I>  307   </I></FONT></A>
+<A NAME="308"><FONT COLOR="#888888"><I>  308   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  We require that all plane bodies are static */</I></FONT>
+<A NAME="309"><FONT COLOR="#888888"><I>  309   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 3; i++) <B>{</B>
+<A NAME="310"><FONT COLOR="#888888"><I>  310   </I></FONT></A>    P_data.u[i] = (<A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A>)point[i];
+<A NAME="311"><FONT COLOR="#888888"><I>  311   </I></FONT></A>    P_data.plane_normal[i] = (<A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A>)y[i];
+<A NAME="312"><FONT COLOR="#888888"><I>  312   </I></FONT></A>  <B>}</B>
+<A NAME="313"><FONT COLOR="#888888"><I>  313   </I></FONT></A>
+<A NAME="314"><FONT COLOR="#888888"><I>  314   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 4; i0++) <B>{</B>
+<A NAME="315"><FONT COLOR="#888888"><I>  315   </I></FONT></A>    tmp_data.name[i0] = s1_name[i0];
+<A NAME="316"><FONT COLOR="#888888"><I>  316   </I></FONT></A>  <B>}</B>
+<A NAME="317"><FONT COLOR="#888888"><I>  317   </I></FONT></A>
+<A NAME="318"><FONT COLOR="#888888"><I>  318   </I></FONT></A>  i = expl_temp_elems_sizes.type[1] - 1;
+<A NAME="319"><FONT COLOR="#888888"><I>  319   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= i; i0++) <B>{</B>
+<A NAME="320"><FONT COLOR="#888888"><I>  320   </I></FONT></A>    tmp_data.type[i0] = s1_type_data[i0];
+<A NAME="321"><FONT COLOR="#888888"><I>  321   </I></FONT></A>  <B>}</B>
+<A NAME="322"><FONT COLOR="#888888"><I>  322   </I></FONT></A>
+<A NAME="323"><FONT COLOR="#888888"><I>  323   </I></FONT></A>  tmp_data.bodyID = 0.0;
+<A NAME="324"><FONT COLOR="#888888"><I>  324   </I></FONT></A>  tmp_data.bodyContactID = 0.0;
+<A NAME="325"><FONT COLOR="#888888"><I>  325   </I></FONT></A>  tmp_data.bodyDynamicID = 0.0;
+<A NAME="326"><FONT COLOR="#888888"><I>  326   </I></FONT></A>  tmp_data.dynamic = TRUE;
+<A NAME="327"><FONT COLOR="#888888"><I>  327   </I></FONT></A>  tmp_data.active = FALSE;
+<A NAME="328"><FONT COLOR="#888888"><I>  328   </I></FONT></A>  tmp_data.mass = 20.0;
+<A NAME="329"><FONT COLOR="#888888"><I>  329   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 3; i++) <B>{</B>
+<A NAME="330"><FONT COLOR="#888888"><I>  330   </I></FONT></A>    tmp_data.u[i] = (<A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A>)s1_u[i];
+<A NAME="331"><FONT COLOR="#888888"><I>  331   </I></FONT></A>  <B>}</B>
+<A NAME="332"><FONT COLOR="#888888"><I>  332   </I></FONT></A>
+<A NAME="333"><FONT COLOR="#888888"><I>  333   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 4; i++) <B>{</B>
+<A NAME="334"><FONT COLOR="#888888"><I>  334   </I></FONT></A>    tmp_data.quat[i] = s1_quat[i];
+<A NAME="335"><FONT COLOR="#888888"><I>  335   </I></FONT></A>  <B>}</B>
+<A NAME="336"><FONT COLOR="#888888"><I>  336   </I></FONT></A>
+<A NAME="337"><FONT COLOR="#888888"><I>  337   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 9; i0++) <B>{</B>
+<A NAME="338"><FONT COLOR="#888888"><I>  338   </I></FONT></A>    tmp_data.J[i0] = s1_J[i0];
+<A NAME="339"><FONT COLOR="#888888"><I>  339   </I></FONT></A>  <B>}</B>
+<A NAME="340"><FONT COLOR="#888888"><I>  340   </I></FONT></A>
+<A NAME="341"><FONT COLOR="#888888"><I>  341   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 6; i++) <B>{</B>
+<A NAME="342"><FONT COLOR="#888888"><I>  342   </I></FONT></A>    tmp_data.nu[i] = s1_nu[i];
+<A NAME="343"><FONT COLOR="#888888"><I>  343   </I></FONT></A>    tmp_data.Fext[i] = s1_Fext[i];
+<A NAME="344"><FONT COLOR="#888888"><I>  344   </I></FONT></A>    tmp_data.Aext[i] = s1_Aext[i];
+<A NAME="345"><FONT COLOR="#888888"><I>  345   </I></FONT></A>  <B>}</B>
+<A NAME="346"><FONT COLOR="#888888"><I>  346   </I></FONT></A>
+<A NAME="347"><FONT COLOR="#888888"><I>  347   </I></FONT></A>  tmp_data.mu = 0.5;
+<A NAME="348"><FONT COLOR="#888888"><I>  348   </I></FONT></A>  tmp_data.numJoints = 0.0;
+<A NAME="349"><FONT COLOR="#888888"><I>  349   </I></FONT></A>  tmp_data.visible = TRUE;
+<A NAME="350"><FONT COLOR="#888888"><I>  350   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="351"><FONT COLOR="#888888"><I>  351   </I></FONT></A>    tmp_data.color[i0] = 0.7;
+<A NAME="352"><FONT COLOR="#888888"><I>  352   </I></FONT></A>  <B>}</B>
+<A NAME="353"><FONT COLOR="#888888"><I>  353   </I></FONT></A>
+<A NAME="354"><FONT COLOR="#888888"><I>  354   </I></FONT></A>  tmp_data.facealpha = 0.7;
+<A NAME="355"><FONT COLOR="#888888"><I>  355   </I></FONT></A>  tmp_data.edgealpha = 1.0;
+<A NAME="356"><FONT COLOR="#888888"><I>  356   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="357"><FONT COLOR="#888888"><I>  357   </I></FONT></A>    tmp_data.AABB_min[i0] = s1_AABB_min[i0];
+<A NAME="358"><FONT COLOR="#888888"><I>  358   </I></FONT></A>    tmp_data.AABB_max[i0] = s1_AABB_max[i0];
+<A NAME="359"><FONT COLOR="#888888"><I>  359   </I></FONT></A>  <B>}</B>
+<A NAME="360"><FONT COLOR="#888888"><I>  360   </I></FONT></A>
+<A NAME="361"><FONT COLOR="#888888"><I>  361   </I></FONT></A>  tmp_data.collides = TRUE;
+<A NAME="362"><FONT COLOR="#888888"><I>  362   </I></FONT></A>  tmp_data.radius = 2.0;
+<A NAME="363"><FONT COLOR="#888888"><I>  363   </I></FONT></A>  tmp_data.num_sphere_verts = 25.0;
+<A NAME="364"><FONT COLOR="#888888"><I>  364   </I></FONT></A>  tmp_data.height = 1.0;
+<A NAME="365"><FONT COLOR="#888888"><I>  365   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="366"><FONT COLOR="#888888"><I>  366   </I></FONT></A>    tmp_data.plane_normal[i0] = s1_plane_normal[i0];
+<A NAME="367"><FONT COLOR="#888888"><I>  367   </I></FONT></A>  <B>}</B>
+<A NAME="368"><FONT COLOR="#888888"><I>  368   </I></FONT></A>
+<A NAME="369"><FONT COLOR="#888888"><I>  369   </I></FONT></A>  tmp_data.num_verts = 0.0;
+<A NAME="370"><FONT COLOR="#888888"><I>  370   </I></FONT></A>  tmp_data.num_edges = 0.0;
+<A NAME="371"><FONT COLOR="#888888"><I>  371   </I></FONT></A>  tmp_data.num_faces = 0.0;
+<A NAME="372"><FONT COLOR="#888888"><I>  372   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 4; i0++) <B>{</B>
+<A NAME="373"><FONT COLOR="#888888"><I>  373   </I></FONT></A>    b_tmp_data.name[i0] = s2_name[i0];
+<A NAME="374"><FONT COLOR="#888888"><I>  374   </I></FONT></A>  <B>}</B>
+<A NAME="375"><FONT COLOR="#888888"><I>  375   </I></FONT></A>
+<A NAME="376"><FONT COLOR="#888888"><I>  376   </I></FONT></A>  i = b_expl_temp_elems_sizes.type[1] - 1;
+<A NAME="377"><FONT COLOR="#888888"><I>  377   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt;= i; i0++) <B>{</B>
+<A NAME="378"><FONT COLOR="#888888"><I>  378   </I></FONT></A>    b_tmp_data.type[i0] = s2_type_data[i0];
+<A NAME="379"><FONT COLOR="#888888"><I>  379   </I></FONT></A>  <B>}</B>
+<A NAME="380"><FONT COLOR="#888888"><I>  380   </I></FONT></A>
+<A NAME="381"><FONT COLOR="#888888"><I>  381   </I></FONT></A>  b_tmp_data.bodyID = 0.0;
+<A NAME="382"><FONT COLOR="#888888"><I>  382   </I></FONT></A>  b_tmp_data.bodyContactID = 0.0;
+<A NAME="383"><FONT COLOR="#888888"><I>  383   </I></FONT></A>  b_tmp_data.bodyDynamicID = 0.0;
+<A NAME="384"><FONT COLOR="#888888"><I>  384   </I></FONT></A>  b_tmp_data.dynamic = TRUE;
+<A NAME="385"><FONT COLOR="#888888"><I>  385   </I></FONT></A>  b_tmp_data.active = FALSE;
+<A NAME="386"><FONT COLOR="#888888"><I>  386   </I></FONT></A>  b_tmp_data.mass = 1.0;
+<A NAME="387"><FONT COLOR="#888888"><I>  387   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 3; i++) <B>{</B>
+<A NAME="388"><FONT COLOR="#888888"><I>  388   </I></FONT></A>    b_tmp_data.u[i] = s2_u[i];
+<A NAME="389"><FONT COLOR="#888888"><I>  389   </I></FONT></A>  <B>}</B>
+<A NAME="390"><FONT COLOR="#888888"><I>  390   </I></FONT></A>
+<A NAME="391"><FONT COLOR="#888888"><I>  391   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 4; i++) <B>{</B>
+<A NAME="392"><FONT COLOR="#888888"><I>  392   </I></FONT></A>    b_tmp_data.quat[i] = s2_quat[i];
+<A NAME="393"><FONT COLOR="#888888"><I>  393   </I></FONT></A>  <B>}</B>
+<A NAME="394"><FONT COLOR="#888888"><I>  394   </I></FONT></A>
+<A NAME="395"><FONT COLOR="#888888"><I>  395   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 9; i0++) <B>{</B>
+<A NAME="396"><FONT COLOR="#888888"><I>  396   </I></FONT></A>    b_tmp_data.J[i0] = s2_J[i0];
+<A NAME="397"><FONT COLOR="#888888"><I>  397   </I></FONT></A>  <B>}</B>
+<A NAME="398"><FONT COLOR="#888888"><I>  398   </I></FONT></A>
+<A NAME="399"><FONT COLOR="#888888"><I>  399   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 6; i++) <B>{</B>
+<A NAME="400"><FONT COLOR="#888888"><I>  400   </I></FONT></A>    b_tmp_data.nu[i] = s2_nu[i];
+<A NAME="401"><FONT COLOR="#888888"><I>  401   </I></FONT></A>    b_tmp_data.Fext[i] = s2_Fext[i];
+<A NAME="402"><FONT COLOR="#888888"><I>  402   </I></FONT></A>    b_tmp_data.Aext[i] = s2_Aext[i];
+<A NAME="403"><FONT COLOR="#888888"><I>  403   </I></FONT></A>  <B>}</B>
+<A NAME="404"><FONT COLOR="#888888"><I>  404   </I></FONT></A>
+<A NAME="405"><FONT COLOR="#888888"><I>  405   </I></FONT></A>  b_tmp_data.mu = 0.5;
+<A NAME="406"><FONT COLOR="#888888"><I>  406   </I></FONT></A>  b_tmp_data.numJoints = 0.0;
+<A NAME="407"><FONT COLOR="#888888"><I>  407   </I></FONT></A>  b_tmp_data.visible = TRUE;
+<A NAME="408"><FONT COLOR="#888888"><I>  408   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="409"><FONT COLOR="#888888"><I>  409   </I></FONT></A>    b_tmp_data.color[i0] = s2_color[i0];
+<A NAME="410"><FONT COLOR="#888888"><I>  410   </I></FONT></A>  <B>}</B>
+<A NAME="411"><FONT COLOR="#888888"><I>  411   </I></FONT></A>
+<A NAME="412"><FONT COLOR="#888888"><I>  412   </I></FONT></A>  b_tmp_data.facealpha = 0.7;
+<A NAME="413"><FONT COLOR="#888888"><I>  413   </I></FONT></A>  b_tmp_data.edgealpha = 1.0;
+<A NAME="414"><FONT COLOR="#888888"><I>  414   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="415"><FONT COLOR="#888888"><I>  415   </I></FONT></A>    b_tmp_data.AABB_min[i0] = s2_AABB_min[i0];
+<A NAME="416"><FONT COLOR="#888888"><I>  416   </I></FONT></A>    b_tmp_data.AABB_max[i0] = s2_AABB_max[i0];
+<A NAME="417"><FONT COLOR="#888888"><I>  417   </I></FONT></A>  <B>}</B>
+<A NAME="418"><FONT COLOR="#888888"><I>  418   </I></FONT></A>
+<A NAME="419"><FONT COLOR="#888888"><I>  419   </I></FONT></A>  b_tmp_data.collides = TRUE;
+<A NAME="420"><FONT COLOR="#888888"><I>  420   </I></FONT></A>  b_tmp_data.radius = 0.25;
+<A NAME="421"><FONT COLOR="#888888"><I>  421   </I></FONT></A>  b_tmp_data.num_sphere_verts = 15.0;
+<A NAME="422"><FONT COLOR="#888888"><I>  422   </I></FONT></A>  b_tmp_data.height = 1.0;
+<A NAME="423"><FONT COLOR="#888888"><I>  423   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="424"><FONT COLOR="#888888"><I>  424   </I></FONT></A>    b_tmp_data.plane_normal[i0] = s2_plane_normal[i0];
+<A NAME="425"><FONT COLOR="#888888"><I>  425   </I></FONT></A>  <B>}</B>
+<A NAME="426"><FONT COLOR="#888888"><I>  426   </I></FONT></A>
+<A NAME="427"><FONT COLOR="#888888"><I>  427   </I></FONT></A>  b_tmp_data.num_verts = 0.0;
+<A NAME="428"><FONT COLOR="#888888"><I>  428   </I></FONT></A>  b_tmp_data.num_edges = 0.0;
+<A NAME="429"><FONT COLOR="#888888"><I>  429   </I></FONT></A>  b_tmp_data.num_faces = 0.0;
+<A NAME="430"><FONT COLOR="#888888"><I>  430   </I></FONT></A>  body_data[0] = P_data;
+<A NAME="431"><FONT COLOR="#888888"><I>  431   </I></FONT></A>  body_data[1] = tmp_data;
+<A NAME="432"><FONT COLOR="#888888"><I>  432   </I></FONT></A>  body_data[2] = b_tmp_data;
+<A NAME="433"><FONT COLOR="#888888"><I>  433   </I></FONT></A>
+<A NAME="434"><FONT COLOR="#888888"><I>  434   </I></FONT></A>  <FONT COLOR="#117755"><I>/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */</I></FONT>
+<A NAME="435"><FONT COLOR="#888888"><I>  435   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  RPI-MATLAB-Simulator */</I></FONT>
+<A NAME="436"><FONT COLOR="#888888"><I>  436   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  http://code.google.com/p/rpi-matlab-simulator/ */</I></FONT>
+<A NAME="437"><FONT COLOR="#888888"><I>  437   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  */</I></FONT>
+<A NAME="438"><FONT COLOR="#888888"><I>  438   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Adds the column vector of body structs to the sim struct.   */</I></FONT>
+<A NAME="439"><FONT COLOR="#888888"><I>  439   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  INPUTS: */</I></FONT>
+<A NAME="440"><FONT COLOR="#888888"><I>  440   </I></FONT></A>  <FONT COLOR="#117755"><I>/*        sim  - A simulation struct created with Simulator(). */</I></FONT>
+<A NAME="441"><FONT COLOR="#888888"><I>  441   </I></FONT></A>  <FONT COLOR="#117755"><I>/*        body - A body struct or vector of body  */</I></FONT>
+<A NAME="442"><FONT COLOR="#888888"><I>  442   </I></FONT></A>  <FONT COLOR="#117755"><I>/*                structs created with Body().   */</I></FONT>
+<A NAME="443"><FONT COLOR="#888888"><I>  443   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Allow body to contain multiple bodies, but require a vector. */</I></FONT>
+<A NAME="444"><FONT COLOR="#888888"><I>  444   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Force a row vector. */</I></FONT>
+<A NAME="445"><FONT COLOR="#888888"><I>  445   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Update body information */</I></FONT>
+<A NAME="446"><FONT COLOR="#888888"><I>  446   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 3; i++) <B>{</B>
+<A NAME="447"><FONT COLOR="#888888"><I>  447   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Force position vectors to be column vectors */</I></FONT>
+<A NAME="448"><FONT COLOR="#888888"><I>  448   </I></FONT></A>    P_data = body_data[i];
+<A NAME="449"><FONT COLOR="#888888"><I>  449   </I></FONT></A>
+<A NAME="450"><FONT COLOR="#888888"><I>  450   </I></FONT></A>    <FONT COLOR="#117755"><I>/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */</I></FONT>
+<A NAME="451"><FONT COLOR="#888888"><I>  451   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Kinematic update with or without velocity */</I></FONT>
+<A NAME="452"><FONT COLOR="#888888"><I>  452   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Update the position and orientation of a body, including world coordinates and face normals. */</I></FONT>
+<A NAME="453"><FONT COLOR="#888888"><I>  453   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  INPUTS:  */</I></FONT>
+<A NAME="454"><FONT COLOR="#888888"><I>  454   </I></FONT></A>    <FONT COLOR="#117755"><I>/*        B       - A Body_mesh struct to be updated.  */</I></FONT>
+<A NAME="455"><FONT COLOR="#888888"><I>  455   </I></FONT></A>    <FONT COLOR="#117755"><I>/*        h       - The timestep size in seconds.   */</I></FONT>
+<A NAME="456"><FONT COLOR="#888888"><I>  456   </I></FONT></A>    <FONT COLOR="#117755"><I>/*        newNu   - (optional) The body's velocity at the end of the current timestep. */</I></FONT>
+<A NAME="457"><FONT COLOR="#888888"><I>  457   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Do not update static bodies */</I></FONT>
+<A NAME="458"><FONT COLOR="#888888"><I>  458   </I></FONT></A>    <FONT COLOR="#117755"><I>/* if ~B.dynamic, return; end */</I></FONT>
+<A NAME="459"><FONT COLOR="#888888"><I>  459   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  If there is a newNu assigned */</I></FONT>
+<A NAME="460"><FONT COLOR="#888888"><I>  460   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Velocity  */</I></FONT>
+<A NAME="461"><FONT COLOR="#888888"><I>  461   </I></FONT></A>    <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 6; i0++) <B>{</B>
+<A NAME="462"><FONT COLOR="#888888"><I>  462   </I></FONT></A>      P_data.nu[i0] = body_data[i].nu[i0] + body_data[i].Fext[i0] / body_data[i]
+<A NAME="463"><FONT COLOR="#888888"><I>  463   </I></FONT></A>        .mass * 0.0;
+<A NAME="464"><FONT COLOR="#888888"><I>  464   </I></FONT></A>    <B>}</B>
+<A NAME="465"><FONT COLOR="#888888"><I>  465   </I></FONT></A>
+<A NAME="466"><FONT COLOR="#888888"><I>  466   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Translation */</I></FONT>
+<A NAME="467"><FONT COLOR="#888888"><I>  467   </I></FONT></A>    <FONT COLOR="#112266"><B>for</B></FONT> (i0 = 0; i0 &lt; 3; i0++) <B>{</B>
+<A NAME="468"><FONT COLOR="#888888"><I>  468   </I></FONT></A>      P_data.u[i0] += 0.0 * P_data.nu[i0];
+<A NAME="469"><FONT COLOR="#888888"><I>  469   </I></FONT></A>    <B>}</B>
+<A NAME="470"><FONT COLOR="#888888"><I>  470   </I></FONT></A>
+<A NAME="471"><FONT COLOR="#888888"><I>  471   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Rotation  */</I></FONT>
+<A NAME="472"><FONT COLOR="#888888"><I>  472   </I></FONT></A>    body_data[i] = P_data;
+<A NAME="473"><FONT COLOR="#888888"><I>  473   </I></FONT></A>    body_data[i].bodyID = 1.0 + (<A HREF="rtwtypes_h.html#type_real_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_real_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">real_T</FONT></A>)i;
+<A NAME="474"><FONT COLOR="#888888"><I>  474   </I></FONT></A>  <B>}</B>
+<A NAME="475"><FONT COLOR="#888888"><I>  475   </I></FONT></A>
+<A NAME="476"><FONT COLOR="#888888"><I>  476   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Update and return the sim struct.  */</I></FONT>
+<A NAME="477"><FONT COLOR="#888888"><I>  477   </I></FONT></A>  <FONT COLOR="#117755"><I>/* sim.bodies = [ sim.bodies body ]; */</I></FONT>
+<A NAME="478"><FONT COLOR="#888888"><I>  478   </I></FONT></A>  sim.num_bodies = 3.0;
+<A NAME="479"><FONT COLOR="#888888"><I>  479   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 3; i++) <B>{</B>
+<A NAME="480"><FONT COLOR="#888888"><I>  480   </I></FONT></A>    <FONT COLOR="#112266"><B>if</B></FONT> (body_data[i].dynamic) <B>{</B>
+<A NAME="481"><FONT COLOR="#888888"><I>  481   </I></FONT></A>      sim.num_dynamicBodies++;
+<A NAME="482"><FONT COLOR="#888888"><I>  482   </I></FONT></A>
+<A NAME="483"><FONT COLOR="#888888"><I>  483   </I></FONT></A>      <FONT COLOR="#117755"><I>/* sim.bodies(i).bodyDynamicID = sim.num_dynamicBodies; */</I></FONT>
+<A NAME="484"><FONT COLOR="#888888"><I>  484   </I></FONT></A>    <B>}</B> <FONT COLOR="#112266"><B>else</B></FONT> <B>{</B>
+<A NAME="485"><FONT COLOR="#888888"><I>  485   </I></FONT></A>      <FONT COLOR="#117755"><I>/* sim.bodies(i).bodyDynamicID = -1; */</I></FONT>
+<A NAME="486"><FONT COLOR="#888888"><I>  486   </I></FONT></A>    <B>}</B>
+<A NAME="487"><FONT COLOR="#888888"><I>  487   </I></FONT></A>  <B>}</B>
+<A NAME="488"><FONT COLOR="#888888"><I>  488   </I></FONT></A>
+<A NAME="489"><FONT COLOR="#888888"><I>  489   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Add bodies to simulator */</I></FONT>
+<A NAME="490"><FONT COLOR="#888888"><I>  490   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Run the simulator! */</I></FONT>
+<A NAME="491"><FONT COLOR="#888888"><I>  491   </I></FONT></A>  <FONT COLOR="#117755"><I>/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */</I></FONT>
+<A NAME="492"><FONT COLOR="#888888"><I>  492   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  RPI-MATLAB-Simulator */</I></FONT>
+<A NAME="493"><FONT COLOR="#888888"><I>  493   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  http://code.google.com/p/rpi-matlab-simulator/ */</I></FONT>
+<A NAME="494"><FONT COLOR="#888888"><I>  494   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  */</I></FONT>
+<A NAME="495"><FONT COLOR="#888888"><I>  495   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Runs a simulator  */</I></FONT>
+<A NAME="496"><FONT COLOR="#888888"><I>  496   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Initialize graphics  */</I></FONT>
+<A NAME="497"><FONT COLOR="#888888"><I>  497   </I></FONT></A>  <FONT COLOR="#117755"><I>/* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */</I></FONT>
+<A NAME="498"><FONT COLOR="#888888"><I>  498   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  RPI-MATLAB-Simulator */</I></FONT>
+<A NAME="499"><FONT COLOR="#888888"><I>  499   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  http://code.google.com/p/rpi-matlab-simulator/ */</I></FONT>
+<A NAME="500"><FONT COLOR="#888888"><I>  500   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  */</I></FONT>
+<A NAME="501"><FONT COLOR="#888888"><I>  501   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  This function initializes all of the graphics associated with a */</I></FONT>
+<A NAME="502"><FONT COLOR="#888888"><I>  502   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  simulation.  */</I></FONT>
+<A NAME="503"><FONT COLOR="#888888"><I>  503   </I></FONT></A>  <FONT COLOR="#117755"><I>/* figure();  hold on;  */</I></FONT>
+<A NAME="504"><FONT COLOR="#888888"><I>  504   </I></FONT></A>  <FONT COLOR="#117755"><I>/*     %% Init body graphics */</I></FONT>
+<A NAME="505"><FONT COLOR="#888888"><I>  505   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      for b=1:length(sim.bodies) */</I></FONT>
+<A NAME="506"><FONT COLOR="#888888"><I>  506   </I></FONT></A>  <FONT COLOR="#117755"><I>/*         sim.bodies(b) = body_draw_init(sim.bodies(b));   */</I></FONT>
+<A NAME="507"><FONT COLOR="#888888"><I>  507   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      end */</I></FONT>
+<A NAME="508"><FONT COLOR="#888888"><I>  508   </I></FONT></A>  <FONT COLOR="#117755"><I>/*       */</I></FONT>
+<A NAME="509"><FONT COLOR="#888888"><I>  509   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      %% Init bounding box graphics */</I></FONT>
+<A NAME="510"><FONT COLOR="#888888"><I>  510   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      if sim.drawBoundingBoxes  */</I></FONT>
+<A NAME="511"><FONT COLOR="#888888"><I>  511   </I></FONT></A>  <FONT COLOR="#117755"><I>/*          Vbb = zeros(8,3);  */</I></FONT>
+<A NAME="512"><FONT COLOR="#888888"><I>  512   </I></FONT></A>  <FONT COLOR="#117755"><I>/*          for b=1:sim.num_bodies */</I></FONT>
+<A NAME="513"><FONT COLOR="#888888"><I>  513   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              M = sim.bodies(b).AABB_max; */</I></FONT>
+<A NAME="514"><FONT COLOR="#888888"><I>  514   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              m = sim.bodies(b).AABB_min;  */</I></FONT>
+<A NAME="515"><FONT COLOR="#888888"><I>  515   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Vbb(1,:) = [m(1) m(2) m(3)];  % Verts of BBox */</I></FONT>
+<A NAME="516"><FONT COLOR="#888888"><I>  516   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Vbb(2,:) = [m(1) M(2) m(3)]; */</I></FONT>
+<A NAME="517"><FONT COLOR="#888888"><I>  517   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Vbb(3,:) = [M(1) M(2) m(3)]; */</I></FONT>
+<A NAME="518"><FONT COLOR="#888888"><I>  518   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Vbb(4,:) = [M(1) m(2) m(3)]; */</I></FONT>
+<A NAME="519"><FONT COLOR="#888888"><I>  519   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Vbb(5,:) = [m(1) m(2) M(3)]; */</I></FONT>
+<A NAME="520"><FONT COLOR="#888888"><I>  520   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Vbb(6,:) = [m(1) M(2) M(3)]; */</I></FONT>
+<A NAME="521"><FONT COLOR="#888888"><I>  521   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Vbb(7,:) = [M(1) M(2) M(3)]; */</I></FONT>
+<A NAME="522"><FONT COLOR="#888888"><I>  522   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Vbb(8,:) = [M(1) m(2) M(3)]; */</I></FONT>
+<A NAME="523"><FONT COLOR="#888888"><I>  523   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              Ebb = [ Vbb(1,:); Vbb(2,:) */</I></FONT>
+<A NAME="524"><FONT COLOR="#888888"><I>  524   </I></FONT></A>  <FONT COLOR="#117755"><I>/*                      Vbb(3,:); Vbb(4,:) */</I></FONT>
+<A NAME="525"><FONT COLOR="#888888"><I>  525   </I></FONT></A>  <FONT COLOR="#117755"><I>/*                      Vbb(1,:); Vbb(5,:) */</I></FONT>
+<A NAME="526"><FONT COLOR="#888888"><I>  526   </I></FONT></A>  <FONT COLOR="#117755"><I>/*                      Vbb(6,:); Vbb(7,:) */</I></FONT>
+<A NAME="527"><FONT COLOR="#888888"><I>  527   </I></FONT></A>  <FONT COLOR="#117755"><I>/*                      Vbb(8,:); Vbb(5,:) */</I></FONT>
+<A NAME="528"><FONT COLOR="#888888"><I>  528   </I></FONT></A>  <FONT COLOR="#117755"><I>/*                      Vbb(6,:); Vbb(2,:) */</I></FONT>
+<A NAME="529"><FONT COLOR="#888888"><I>  529   </I></FONT></A>  <FONT COLOR="#117755"><I>/*                      Vbb(3,:); Vbb(7,:) */</I></FONT>
+<A NAME="530"><FONT COLOR="#888888"><I>  530   </I></FONT></A>  <FONT COLOR="#117755"><I>/*                      Vbb(8,:); Vbb(4,:) ]; */</I></FONT>
+<A NAME="531"><FONT COLOR="#888888"><I>  531   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              sim.bodies(b).bboxHandle = plot3(Ebb(:,1),Ebb(:,2),Ebb(:,3),'b'); */</I></FONT>
+<A NAME="532"><FONT COLOR="#888888"><I>  532   </I></FONT></A>  <FONT COLOR="#117755"><I>/*          end */</I></FONT>
+<A NAME="533"><FONT COLOR="#888888"><I>  533   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      end */</I></FONT>
+<A NAME="534"><FONT COLOR="#888888"><I>  534   </I></FONT></A>  <FONT COLOR="#117755"><I>/*       */</I></FONT>
+<A NAME="535"><FONT COLOR="#888888"><I>  535   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      %% Init joint graphics */</I></FONT>
+<A NAME="536"><FONT COLOR="#888888"><I>  536   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      if sim.drawJoints */</I></FONT>
+<A NAME="537"><FONT COLOR="#888888"><I>  537   </I></FONT></A>  <FONT COLOR="#117755"><I>/*          for j=1:length(sim.joints) */</I></FONT>
+<A NAME="538"><FONT COLOR="#888888"><I>  538   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             Jnt = sim.joints(j);  */</I></FONT>
+<A NAME="539"><FONT COLOR="#888888"><I>  539   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             p1 = Jnt.P1;  */</I></FONT>
+<A NAME="540"><FONT COLOR="#888888"><I>  540   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             x1 = Jnt.X1; */</I></FONT>
+<A NAME="541"><FONT COLOR="#888888"><I>  541   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             y1 = Jnt.Y1; */</I></FONT>
+<A NAME="542"><FONT COLOR="#888888"><I>  542   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             z1 = Jnt.Z1;  */</I></FONT>
+<A NAME="543"><FONT COLOR="#888888"><I>  543   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             p2 = Jnt.P2; */</I></FONT>
+<A NAME="544"><FONT COLOR="#888888"><I>  544   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             x2 = Jnt.X2; */</I></FONT>
+<A NAME="545"><FONT COLOR="#888888"><I>  545   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             y2 = Jnt.Y2; */</I></FONT>
+<A NAME="546"><FONT COLOR="#888888"><I>  546   </I></FONT></A>  <FONT COLOR="#117755"><I>/*             z2 = Jnt.Z2;  */</I></FONT>
+<A NAME="547"><FONT COLOR="#888888"><I>  547   </I></FONT></A>  <FONT COLOR="#117755"><I>/*              */</I></FONT>
+<A NAME="548"><FONT COLOR="#888888"><I>  548   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.drawn = true;  */</I></FONT>
+<A NAME="549"><FONT COLOR="#888888"><I>  549   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.P1Handle = plot3(p1(1),p1(2),p1(3),'r*'); */</I></FONT>
+<A NAME="550"><FONT COLOR="#888888"><I>  550   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.P1_X_AxisHandle = plot3([p1(1) x1(1)],[p1(2) x1(2)],[p1(3) x1(3)],'r'); */</I></FONT>
+<A NAME="551"><FONT COLOR="#888888"><I>  551   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.P1_Y_AxisHandle = plot3([p1(1) y1(1)],[p1(2) y1(2)],[p1(3) y1(3)],'g'); */</I></FONT>
+<A NAME="552"><FONT COLOR="#888888"><I>  552   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.P1_Z_AxisHandle = plot3([p1(1) z1(1)],[p1(2) z1(2)],[p1(3) z1(3)],'b'); */</I></FONT>
+<A NAME="553"><FONT COLOR="#888888"><I>  553   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            %Jnt.P1_Z_pointHandle = plot3(z1(1),z1(2),z1(3),'bo'); */</I></FONT>
+<A NAME="554"><FONT COLOR="#888888"><I>  554   </I></FONT></A>  <FONT COLOR="#117755"><I>/*   */</I></FONT>
+<A NAME="555"><FONT COLOR="#888888"><I>  555   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.P2Handle = plot3(p2(1),p2(2),p2(3),'r*'); */</I></FONT>
+<A NAME="556"><FONT COLOR="#888888"><I>  556   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.P2_X_AxisHandle = plot3([p2(1) x2(1)],[p2(2) x2(2)],[p2(3) x2(3)],'r'); */</I></FONT>
+<A NAME="557"><FONT COLOR="#888888"><I>  557   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.P2_Y_AxisHandle = plot3([p2(1) y2(1)],[p2(2) y2(2)],[p2(3) y2(3)],'g'); */</I></FONT>
+<A NAME="558"><FONT COLOR="#888888"><I>  558   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.P2_Z_AxisHandle = plot3([p2(1) z2(1)],[p2(2) z2(2)],[p2(3) z2(3)],'b'); */</I></FONT>
+<A NAME="559"><FONT COLOR="#888888"><I>  559   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            %Jnt.P2_Z_pointHandle = plot3(z2(1),z2(2),z2(3),'bo'); */</I></FONT>
+<A NAME="560"><FONT COLOR="#888888"><I>  560   </I></FONT></A>  <FONT COLOR="#117755"><I>/*   */</I></FONT>
+<A NAME="561"><FONT COLOR="#888888"><I>  561   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            Jnt.labelHandle = text(p1(1),p1(2),p1(3)+0.5,['Joint ' num2str(Jnt.jointID)]); */</I></FONT>
+<A NAME="562"><FONT COLOR="#888888"><I>  562   </I></FONT></A>  <FONT COLOR="#117755"><I>/*   */</I></FONT>
+<A NAME="563"><FONT COLOR="#888888"><I>  563   </I></FONT></A>  <FONT COLOR="#117755"><I>/*            sim.joints(j) = Jnt;  */</I></FONT>
+<A NAME="564"><FONT COLOR="#888888"><I>  564   </I></FONT></A>  <FONT COLOR="#117755"><I>/*          end */</I></FONT>
+<A NAME="565"><FONT COLOR="#888888"><I>  565   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      end */</I></FONT>
+<A NAME="566"><FONT COLOR="#888888"><I>  566   </I></FONT></A>  <FONT COLOR="#117755"><I>/*       */</I></FONT>
+<A NAME="567"><FONT COLOR="#888888"><I>  567   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      %% Set default plot properties */</I></FONT>
+<A NAME="568"><FONT COLOR="#888888"><I>  568   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      view(3);  */</I></FONT>
+<A NAME="569"><FONT COLOR="#888888"><I>  569   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      grid on;  */</I></FONT>
+<A NAME="570"><FONT COLOR="#888888"><I>  570   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      axis equal;  */</I></FONT>
+<A NAME="571"><FONT COLOR="#888888"><I>  571   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      xlabel('X'); ylabel('Y'); zlabel('Z');  */</I></FONT>
+<A NAME="572"><FONT COLOR="#888888"><I>  572   </I></FONT></A>  <FONT COLOR="#117755"><I>/*       */</I></FONT>
+<A NAME="573"><FONT COLOR="#888888"><I>  573   </I></FONT></A>  <FONT COLOR="#117755"><I>/*      if ~exist('OCTAVE_VERSION','var'), rotate3d; end */</I></FONT>
+<A NAME="574"><FONT COLOR="#888888"><I>  574   </I></FONT></A>  <FONT COLOR="#117755"><I>/* disp('Simulating without GUI, make sure you have set sim.MAX_STEP to a reasonable value.'); end */</I></FONT>
+<A NAME="575"><FONT COLOR="#888888"><I>  575   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Turn "on" gravity */</I></FONT>
+<A NAME="576"><FONT COLOR="#888888"><I>  576   </I></FONT></A>  <FONT COLOR="#117755"><I>/* if sim.gravity, sim = sim_setGravity( sim ); end */</I></FONT>
+<A NAME="577"><FONT COLOR="#888888"><I>  577   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  Remove to run without pause */</I></FONT>
+<A NAME="578"><FONT COLOR="#888888"><I>  578   </I></FONT></A>  <FONT COLOR="#117755"><I>/* pause();  */</I></FONT>
+<A NAME="579"><FONT COLOR="#888888"><I>  579   </I></FONT></A>  <FONT COLOR="#117755"><I>/*     %% Simulation loop  */</I></FONT>
+<A NAME="580"><FONT COLOR="#888888"><I>  580   </I></FONT></A>  <FONT COLOR="#117755"><I>/* tic; */</I></FONT>
+<A NAME="581"><FONT COLOR="#888888"><I>  581   </I></FONT></A>  <FONT COLOR="#117755"><I>/* sim.START_TIME = tic;  */</I></FONT>
+<A NAME="582"><FONT COLOR="#888888"><I>  582   </I></FONT></A>  <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 500; i++) <B>{</B>
+<A NAME="583"><FONT COLOR="#888888"><I>  583   </I></FONT></A>    <FONT COLOR="#117755"><I>/* tic;                                % Start step timer */</I></FONT>
+<A NAME="584"><FONT COLOR="#888888"><I>  584   </I></FONT></A>    sim.time += 0.01;
+<A NAME="585"><FONT COLOR="#888888"><I>  585   </I></FONT></A>    sim.step++;
+<A NAME="586"><FONT COLOR="#888888"><I>  586   </I></FONT></A>
+<A NAME="587"><FONT COLOR="#888888"><I>  587   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Run user-defined function: here it is wam_controller.m */</I></FONT>
+<A NAME="588"><FONT COLOR="#888888"><I>  588   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Generate a contact set, and identify participating dynamic bodies  */</I></FONT>
+<A NAME="589"><FONT COLOR="#888888"><I>  589   </I></FONT></A>    <FONT COLOR="#117755"><I>/*          if ~isempty( sim.H_collision_detection ) */</I></FONT>
+<A NAME="590"><FONT COLOR="#888888"><I>  590   </I></FONT></A>    <FONT COLOR="#117755"><I>/*              sim = feval( sim.H_collision_detection, sim );  */</I></FONT>
+<A NAME="591"><FONT COLOR="#888888"><I>  591   </I></FONT></A>    <FONT COLOR="#117755"><I>/*          end */</I></FONT>
+<A NAME="592"><FONT COLOR="#888888"><I>  592   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Formulate dynamics and solve for new body velocities */</I></FONT>
+<A NAME="593"><FONT COLOR="#888888"><I>  593   </I></FONT></A>    <FONT COLOR="#117755"><I>/* sim.newNU = []; */</I></FONT>
+<A NAME="594"><FONT COLOR="#888888"><I>  594   </I></FONT></A>    <FONT COLOR="#117755"><I>/* fprintf('The number of contacts is: %6d\n', numContact); */</I></FONT>
+<A NAME="595"><FONT COLOR="#888888"><I>  595   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Apply results from solution, as well as update bodies not in contact.    */</I></FONT>
+<A NAME="596"><FONT COLOR="#888888"><I>  596   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  This function iterates over all simulation bodies and updates their  */</I></FONT>
+<A NAME="597"><FONT COLOR="#888888"><I>  597   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  position as well as type-specific properties like vertex positions for  */</I></FONT>
+<A NAME="598"><FONT COLOR="#888888"><I>  598   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  mesh bodies.   */</I></FONT>
+<A NAME="599"><FONT COLOR="#888888"><I>  599   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Manually add here on 10/14/2014 to make sure the object is not moving before the grasp is complete */</I></FONT>
+<A NAME="600"><FONT COLOR="#888888"><I>  600   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Apply results from solution, as well as update bodies not in contact.    */</I></FONT>
+<A NAME="601"><FONT COLOR="#888888"><I>  601   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Correct joint errors */</I></FONT>
+<A NAME="602"><FONT COLOR="#888888"><I>  602   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Update title and graphics */</I></FONT>
+<A NAME="603"><FONT COLOR="#888888"><I>  603   </I></FONT></A>    <FONT COLOR="#117755"><I>/*          if sim.draw */</I></FONT>
+<A NAME="604"><FONT COLOR="#888888"><I>  604   </I></FONT></A>    <FONT COLOR="#117755"><I>/*              figure(sim.figure); */</I></FONT>
+<A NAME="605"><FONT COLOR="#888888"><I>  605   </I></FONT></A>    <FONT COLOR="#117755"><I>/*              title(['Timestep: ' num2str(sim.step)]); */</I></FONT>
+<A NAME="606"><FONT COLOR="#888888"><I>  606   </I></FONT></A>    <FONT COLOR="#117755"><I>/*              if sim.drawContacts, sim = sim_drawContacts(sim); end */</I></FONT>
+<A NAME="607"><FONT COLOR="#888888"><I>  607   </I></FONT></A>    <FONT COLOR="#117755"><I>/*              if sim.drawJoints,   sim = sim_drawJoints(sim);   end */</I></FONT>
+<A NAME="608"><FONT COLOR="#888888"><I>  608   </I></FONT></A>    <FONT COLOR="#117755"><I>/*              axis equal; */</I></FONT>
+<A NAME="609"><FONT COLOR="#888888"><I>  609   </I></FONT></A>    <FONT COLOR="#117755"><I>/*              drawnow;  */</I></FONT>
+<A NAME="610"><FONT COLOR="#888888"><I>  610   </I></FONT></A>    <FONT COLOR="#117755"><I>/*          else */</I></FONT>
+<A NAME="611"><FONT COLOR="#888888"><I>  611   </I></FONT></A>    <FONT COLOR="#117755"><I>/*              %disp(['Step ' num2str(sim.step) ' took ' num2str(toc) ' seconds']); */</I></FONT>
+<A NAME="612"><FONT COLOR="#888888"><I>  612   </I></FONT></A>    <FONT COLOR="#117755"><I>/*          end */</I></FONT>
+<A NAME="613"><FONT COLOR="#888888"><I>  613   </I></FONT></A>    <FONT COLOR="#117755"><I>/*  Record data for playback  */</I></FONT>
+<A NAME="614"><FONT COLOR="#888888"><I>  614   </I></FONT></A>    <FONT COLOR="#117755"><I>/* if sim.record, sim = sim_record(sim); end  */</I></FONT>
+<A NAME="615"><FONT COLOR="#888888"><I>  615   </I></FONT></A>  <B>}</B>
+<A NAME="616"><FONT COLOR="#888888"><I>  616   </I></FONT></A>
+<A NAME="617"><FONT COLOR="#888888"><I>  617   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  End simulation loop */</I></FONT>
+<A NAME="618"><FONT COLOR="#888888"><I>  618   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  sim.TOTAL_TIME = toc(sim.START_TIME);  */</I></FONT>
+<A NAME="619"><FONT COLOR="#888888"><I>  619   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  disp(['Simulation finished!  Total time: ' num2str(sim.TOTAL_TIME) ' seconds.']); */</I></FONT>
+<A NAME="620"><FONT COLOR="#888888"><I>  620   </I></FONT></A>  <FONT COLOR="#117755"><I>/*  End sim_run() */</I></FONT>
+<A NAME="621"><FONT COLOR="#888888"><I>  621   </I></FONT></A>  <FONT COLOR="#112266"><B>return</B></FONT> sim;
+<A NAME="622"><FONT COLOR="#888888"><I>  622   </I></FONT></A><B>}</B>
+<A NAME="623"><FONT COLOR="#888888"><I>  623   </I></FONT></A>
+<A NAME="624"><FONT COLOR="#888888"><I>  624   </I></FONT></A><FONT COLOR="#117755"><I>/* End of code generation (sphere_on_sphere.c) */</I></FONT>
+<A NAME="625"><FONT COLOR="#888888"><I>  625   </I></FONT></A></PRE>
+</TD></TR></TABLE>
+</P>
+</BODY>
+</HTML>

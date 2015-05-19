@@ -1,0 +1,89 @@
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="51,1" id="srcline1"> 1</a></span><span class="line"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,2" id="srcline2"> 2</a></span><span class="line"><span class="comment">% RPI-MATLAB-Simulator</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,3" id="srcline3"> 3</a></span><span class="line"><span class="comment">% http://code.google.com/p/rpi-matlab-simulator/</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,4" id="srcline4"> 4</a></span><span class="line"><span class="comment">%</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,5" id="srcline5"> 5</a></span><span class="line"><span class="comment">% Runs a simulator </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,6" id="srcline6"> 6</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,7" id="srcline7"> 7</a></span><span class="line"><span class="keyword">function</span> <span class="var type1" id="S2T6U3">sim</span> = sim_run( <span class="mxinfo" id="T6:U2"><span class="mxinfo" id="T6:U3"><span class="var type1" id="S2T6U6">sim</span></span></span> )</span></span>
+<span class="srcline"><span class="lineno"><a href="51,8" id="srcline8"> 8</a></span><span class="line"> <span class="comment">%#codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,9" id="srcline9"> 9</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,10" id="srcline10">10</a></span><span class="line">    <span class="comment">% Initialize graphics </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,11" id="srcline11">11</a></span><span class="line">    <span class="mxinfo" id="T6:U5"><span class="var type1" id="S2T6U9">sim</span> = <span class="mxinfo" id="T6:U7"><span class="fcn" id="F95N13:B11">sim_draw_init</span>( <span class="var type1" id="S2T6U12">sim</span> )</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="51,12" id="srcline12">12</a></span><span class="line">    <span class="keyword">if</span> <span class="mxinfo" id="T4:U9">~<span class="mxinfo" id="T4:U10"><span class="var type1" id="S2T6U17">sim</span>.draw</span></span>, <span class="comment">%disp('Simulating without GUI, make sure you have set sim.MAX_STEP to a reasonable value.'); end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,13" id="srcline13">13</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="51,14" id="srcline14">14</a></span><span class="line">    <span class="comment">% Turn "on" gravity</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,15" id="srcline15">15</a></span><span class="line">    <span class="comment">%if sim.gravity, sim = sim_setGravity( sim ); end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,16" id="srcline16">16</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="51,17" id="srcline17">17</a></span><span class="line">    <span class="comment">% Remove to run without pause</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,18" id="srcline18">18</a></span><span class="line">    <span class="comment">%pause(); </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,19" id="srcline19">19</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,20" id="srcline20">20</a></span><span class="line">    <span class="comment">%% Simulation loop </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,21" id="srcline21">21</a></span><span class="line">    <span class="comment">%tic;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,22" id="srcline22">22</a></span><span class="line">    <span class="comment">%sim.START_TIME = tic; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,23" id="srcline23">23</a></span><span class="line">    <span class="keyword">for</span> <span class="var type1" id="S4T1U21">timestep</span> = <span class="mxinfo" id="T1:U13">1</span>:<span class="mxinfo" id="T1:U14"><span class="var type1" id="S2T6U25">sim</span>.MAX_STEP</span> </span></span>
+<span class="srcline"><span class="lineno"><a href="51,24" id="srcline24">24</a></span><span class="line">        <span class="comment">%tic;                                % Start step timer</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,25" id="srcline25">25</a></span><span class="line">        <span class="mxinfo" id="T1:U16"><span class="mxinfo" id="T1:U17"><span class="var type1" id="S2T6U30">sim</span>.time</span> = <span class="mxinfo" id="T1:U19"><span class="mxinfo" id="T1:U20"><span class="var type1" id="S2T6U34">sim</span>.time</span> + <span class="mxinfo" id="T1:U22"><span class="var type1" id="S2T6U37">sim</span>.h</span></span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="51,26" id="srcline26">26</a></span><span class="line">        <span class="mxinfo" id="T1:U24"><span class="mxinfo" id="T1:U25"><span class="var type1" id="S2T6U42">sim</span>.step</span> = <span class="mxinfo" id="T1:U27"><span class="mxinfo" id="T1:U28"><span class="var type1" id="S2T6U46">sim</span>.step</span> + <span class="mxinfo" id="T1:U30">1</span></span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="51,27" id="srcline27">27</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="51,28" id="srcline28">28</a></span><span class="line">        <span class="comment">% Run user-defined function: here it is wam_controller.m</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,29" id="srcline29">29</a></span><span class="line">        <span class="keyword">if</span> ~isempty(<span class="var type1" id="S2T6U55">sim</span>.userFunction), <span class="var type2" id="S2T0U59">sim</span> = feval( <span class="var type2" id="S2T0U63">sim</span>.userFunction, <span class="var type2" id="S2T0U65">sim</span> ); <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,30" id="srcline30">30</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="51,31" id="srcline31">31</a></span><span class="line">        <span class="comment">% Generate a contact set, and identify participating dynamic bodies </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,32" id="srcline32">32</a></span><span class="line"><span class="comment">%         if ~isempty( sim.H_collision_detection )</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,33" id="srcline33">33</a></span><span class="line"><span class="comment">%             sim = feval( sim.H_collision_detection, sim ); </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,34" id="srcline34">34</a></span><span class="line"><span class="comment">%         end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,35" id="srcline35">35</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="51,36" id="srcline36">36</a></span><span class="line">        <span class="comment">% Formulate dynamics and solve for new body velocities</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,37" id="srcline37">37</a></span><span class="line">        <span class="comment">%sim.newNU = [];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,38" id="srcline38">38</a></span><span class="line">       </span></span>
+<span class="srcline"><span class="lineno"><a href="51,39" id="srcline39">39</a></span><span class="line">        <span class="mxinfo" id="T1:U32"><span class="var type1" id="S7T1U68">numContact</span> = <span class="mxinfo" id="T1:U34">length(<span class="var type1" id="S2T6U72">sim</span>.contacts)</span></span>; </span></span>
+<span class="srcline"><span class="lineno"><a href="51,40" id="srcline40">40</a></span><span class="line">        <span class="comment">%fprintf('The number of contacts is: %6d\n', numContact);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,41" id="srcline41">41</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="51,42" id="srcline42">42</a></span><span class="line">        <span class="keyword">if</span> ~isempty(<span class="var type1" id="S2T6U81">sim</span>.contacts) || <span class="mxinfo" id="T4:U37"><span class="mxinfo" id="T1:U38"><span class="var type1" id="S2T6U85">sim</span>.num_jointConstraints</span> &gt; <span class="mxinfo" id="T1:U40">0</span></span>  </span></span>
+<span class="srcline"><span class="lineno"><a href="51,43" id="srcline43">43</a></span><span class="line">            <span class="var type1" id="S2T6U90">sim</span> = <span class="fcn" id="F98N10:B92">preDynamics</span>( <span class="var type1" id="S2T6U93">sim</span> ); </span></span>
+<span class="srcline"><span class="lineno"><a href="51,44" id="srcline44">44</a></span><span class="line">            <span class="comment">%sim = feval(sim.H_dynamics, sim);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,45" id="srcline45">45</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,46" id="srcline46">46</a></span><span class="line">         </span></span>
+<span class="srcline"><span class="lineno"><a href="51,47" id="srcline47">47</a></span><span class="line">         </span></span>
+<span class="srcline"><span class="lineno"><a href="51,48" id="srcline48">48</a></span><span class="line">        <span class="comment">% Apply results from solution, as well as update bodies not in contact.   </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,49" id="srcline49">49</a></span><span class="line">        <span class="mxinfo" id="T6:U43"><span class="var type1" id="S2T6U96">sim</span> = <span class="mxinfo" id="T6:U45"><span class="fcn" id="F99N6:B98">body_updateAllBodies</span>(<span class="var type1" id="S2T6U99">sim</span>)</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="51,50" id="srcline50">50</a></span><span class="line">         </span></span>
+<span class="srcline"><span class="lineno"><a href="51,51" id="srcline51">51</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="51,52" id="srcline52">52</a></span><span class="line">        <span class="comment">% Correct joint errors</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,53" id="srcline53">53</a></span><span class="line">        <span class="keyword">if</span> <span class="mxinfo" id="T4:U47"><span class="var type1" id="S2T6U103">sim</span>.jointCorrection</span>, <span class="var type1" id="S2T6U107">sim</span> = <span class="fcn" id="F102N9:B109">joint_correction</span>( <span class="var type1" id="S2T6U110">sim</span> ); <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,54" id="srcline54">54</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="51,55" id="srcline55">55</a></span><span class="line">        <span class="comment">% Update title and graphics</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,56" id="srcline56">56</a></span><span class="line"><span class="comment">%         if sim.draw</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,57" id="srcline57">57</a></span><span class="line"><span class="comment">%             figure(sim.figure);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,58" id="srcline58">58</a></span><span class="line"><span class="comment">%             title(['Timestep: ' num2str(sim.step)]);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,59" id="srcline59">59</a></span><span class="line"><span class="comment">%             if sim.drawContacts, sim = sim_drawContacts(sim); end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,60" id="srcline60">60</a></span><span class="line"><span class="comment">%             if sim.drawJoints,   sim = sim_drawJoints(sim);   end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,61" id="srcline61">61</a></span><span class="line"><span class="comment">%             axis equal;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,62" id="srcline62">62</a></span><span class="line"><span class="comment">%             drawnow; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,63" id="srcline63">63</a></span><span class="line"><span class="comment">%         else</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,64" id="srcline64">64</a></span><span class="line"><span class="comment">%             %disp(['Step ' num2str(sim.step) ' took ' num2str(toc) ' seconds']);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,65" id="srcline65">65</a></span><span class="line"><span class="comment">%         end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,66" id="srcline66">66</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="51,67" id="srcline67">67</a></span><span class="line">        <span class="comment">% Record data for playback </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,68" id="srcline68">68</a></span><span class="line">        <span class="comment">%if sim.record, sim = sim_record(sim); end </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,69" id="srcline69">69</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="51,70" id="srcline70">70</a></span><span class="line">    <span class="keyword">end</span> <span class="comment">% End simulation loop</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,71" id="srcline71">71</a></span><span class="line">   <span class="comment">% sim.TOTAL_TIME = toc(sim.START_TIME); </span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,72" id="srcline72">72</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,73" id="srcline73">73</a></span><span class="line">   <span class="comment">% disp(['Simulation finished!  Total time: ' num2str(sim.TOTAL_TIME) ' seconds.']);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,74" id="srcline74">74</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="51,75" id="srcline75">75</a></span><span class="line"><span class="keyword"><span class="keyword">end</span></span> <span class="comment">% End sim_run()</span></span></span>
+<span class="srcline"><span class="lineno"><a href="51,76" id="srcline76">76</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,77" id="srcline77">77</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,78" id="srcline78">78</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,79" id="srcline79">79</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,80" id="srcline80">80</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,81" id="srcline81">81</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,82" id="srcline82">82</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,83" id="srcline83">83</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,84" id="srcline84">84</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,85" id="srcline85">85</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,86" id="srcline86">86</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="51,87" id="srcline87">87</a></span><span class="line"></span></span>
+</pre>

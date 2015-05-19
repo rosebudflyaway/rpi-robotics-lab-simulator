@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<META http-equiv="content-type" content="text/html; charset=utf-8" />
+<TITLE>RTW Report - sphere_on_sphere_api.c </TITLE>
+</HEAD>
+<BODY BGCOLOR="#eeeeee" TEXT="#1122aa" ONLOAD="if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window);}">
+<P>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="6" WIDTH="100%" HEIGHT="100%"><TR><TD WIDTH="100%" VALIGN="top" BGCOLOR="#ffffff">
+<H4>File: <A HREF="file:///home/ying/Documents/lockheed/codegen/mex/sphere_on_sphere/sphere_on_sphere_api.c" TARGET="rtwreport_document_frame">/home/ying/Documents/lockheed/codegen/mex/sphere_on_sphere/sphere_on_sphere_api.c</A></H4>
+<PRE id="RTWcode">
+<A NAME="1"><FONT COLOR="#888888"><I>    1   </I></FONT></A><FONT COLOR="#117755"><I>/*</I></FONT>
+<A NAME="2"><FONT COLOR="#888888"><I>    2   </I></FONT></A><FONT COLOR="#117755"><I> * sphere_on_sphere_api.c</I></FONT>
+<A NAME="3"><FONT COLOR="#888888"><I>    3   </I></FONT></A><FONT COLOR="#117755"><I> *</I></FONT>
+<A NAME="4"><FONT COLOR="#888888"><I>    4   </I></FONT></A><FONT COLOR="#117755"><I> * Code generation for function 'sphere_on_sphere_api'</I></FONT>
+<A NAME="5"><FONT COLOR="#888888"><I>    5   </I></FONT></A><FONT COLOR="#117755"><I> *</I></FONT>
+<A NAME="6"><FONT COLOR="#888888"><I>    6   </I></FONT></A><FONT COLOR="#117755"><I> * C source code generated on: Sat Oct 18 11:56:05 2014</I></FONT>
+<A NAME="7"><FONT COLOR="#888888"><I>    7   </I></FONT></A><FONT COLOR="#117755"><I> *</I></FONT>
+<A NAME="8"><FONT COLOR="#888888"><I>    8   </I></FONT></A><FONT COLOR="#117755"><I> */</I></FONT>
+<A NAME="9"><FONT COLOR="#888888"><I>    9   </I></FONT></A>
+<A NAME="10"><FONT COLOR="#888888"><I>   10   </I></FONT></A><FONT COLOR="#117755"><I>/* Include files */</I></FONT>
+<A NAME="11"><FONT COLOR="#888888"><I>   11   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;rt_nonfinite.h&quot;</FONT>
+<A NAME="12"><FONT COLOR="#888888"><I>   12   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;sphere_on_sphere.h&quot;</FONT>
+<A NAME="13"><FONT COLOR="#888888"><I>   13   </I></FONT></A><FONT COLOR="#992211">#</FONT><FONT COLOR="#992211"><B>include</B></FONT> <FONT COLOR="#992211">&quot;sphere_on_sphere_api.h&quot;</FONT>
+<A NAME="14"><FONT COLOR="#888888"><I>   14   </I></FONT></A>
+<A NAME="15"><FONT COLOR="#888888"><I>   15   </I></FONT></A><FONT COLOR="#117755"><I>/* Type Definitions */</I></FONT>
+<A NAME="16"><FONT COLOR="#888888"><I>   16   </I></FONT></A>
+<A NAME="17"><FONT COLOR="#888888"><I>   17   </I></FONT></A><FONT COLOR="#117755"><I>/* Named Constants */</I></FONT>
+<A NAME="18"><FONT COLOR="#888888"><I>   18   </I></FONT></A>
+<A NAME="19"><FONT COLOR="#888888"><I>   19   </I></FONT></A><FONT COLOR="#117755"><I>/* Variable Declarations */</I></FONT>
+<A NAME="20"><FONT COLOR="#888888"><I>   20   </I></FONT></A>
+<A NAME="21"><FONT COLOR="#888888"><I>   21   </I></FONT></A><FONT COLOR="#117755"><I>/* Variable Definitions */</I></FONT>
+<A NAME="22"><FONT COLOR="#888888"><I>   22   </I></FONT></A>
+<A NAME="23"><FONT COLOR="#888888"><I>   23   </I></FONT></A><FONT COLOR="#117755"><I>/* Function Declarations */</I></FONT>
+<A NAME="24"><FONT COLOR="#888888"><I>   24   </I></FONT></A><FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> mxArray *<A HREF="sphere_on_sphere_api_c.html#fcn_emlrt_marshallOut" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrt_marshallOut');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrt_marshallOut</FONT></A>(<FONT COLOR="#112266"><B>const</B></FONT> <A HREF="sphere_on_sphere_types_h.html#type_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">struct_T</FONT></A> *u);
+<A NAME="25"><FONT COLOR="#888888"><I>   25   </I></FONT></A>
+<A NAME="26"><FONT COLOR="#888888"><I>   26   </I></FONT></A><FONT COLOR="#117755"><I>/* Function Definitions */</I></FONT>
+<A NAME="27"><FONT COLOR="#888888"><I>   27   </I></FONT></A>
+<A NAME="28"><FONT COLOR="#888888"><I>   28   </I></FONT></A><FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> mxArray *<A NAME="fcn_emlrt_marshallOut">emlrt_marshallOut</A>(<FONT COLOR="#112266"><B>const</B></FONT> <A HREF="sphere_on_sphere_types_h.html#type_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">struct_T</FONT></A> *u)
+<A NAME="29"><FONT COLOR="#888888"><I>   29   </I></FONT></A><B>{</B>
+<A NAME="30"><FONT COLOR="#888888"><I>   30   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *y;
+<A NAME="31"><FONT COLOR="#888888"><I>   31   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *b_y;
+<A NAME="32"><FONT COLOR="#888888"><I>   32   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *m0;
+<A NAME="33"><FONT COLOR="#888888"><I>   33   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *c_y;
+<A NAME="34"><FONT COLOR="#888888"><I>   34   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *d_y;
+<A NAME="35"><FONT COLOR="#888888"><I>   35   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *e_y;
+<A NAME="36"><FONT COLOR="#888888"><I>   36   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *f_y;
+<A NAME="37"><FONT COLOR="#888888"><I>   37   </I></FONT></A>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv3[1] = <B>{</B> 3 <B>}</B>;
+<A NAME="38"><FONT COLOR="#888888"><I>   38   </I></FONT></A>    real_T (*pData)[];
+<A NAME="39"><FONT COLOR="#888888"><I>   39   </I></FONT></A>    int32_T i;
+<A NAME="40"><FONT COLOR="#888888"><I>   40   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *g_y;
+<A NAME="41"><FONT COLOR="#888888"><I>   41   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *h_y;
+<A NAME="42"><FONT COLOR="#888888"><I>   42   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *i_y;
+<A NAME="43"><FONT COLOR="#888888"><I>   43   </I></FONT></A>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv4[2] = <B>{</B> 1, 0 <B>}</B>;
+<A NAME="44"><FONT COLOR="#888888"><I>   44   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *j_y;
+<A NAME="45"><FONT COLOR="#888888"><I>   45   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *k_y;
+<A NAME="46"><FONT COLOR="#888888"><I>   46   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *l_y;
+<A NAME="47"><FONT COLOR="#888888"><I>   47   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *m_y;
+<A NAME="48"><FONT COLOR="#888888"><I>   48   </I></FONT></A>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv5[2] = <B>{</B> 0, 0 <B>}</B>;
+<A NAME="49"><FONT COLOR="#888888"><I>   49   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *n_y;
+<A NAME="50"><FONT COLOR="#888888"><I>   50   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *o_y;
+<A NAME="51"><FONT COLOR="#888888"><I>   51   </I></FONT></A>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv6[2] = <B>{</B> 0, 0 <B>}</B>;
+<A NAME="52"><FONT COLOR="#888888"><I>   52   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *p_y;
+<A NAME="53"><FONT COLOR="#888888"><I>   53   </I></FONT></A>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv7[2] = <B>{</B> 0, 0 <B>}</B>;
+<A NAME="54"><FONT COLOR="#888888"><I>   54   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *q_y;
+<A NAME="55"><FONT COLOR="#888888"><I>   55   </I></FONT></A>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv8[2] = <B>{</B> 0, 0 <B>}</B>;
+<A NAME="56"><FONT COLOR="#888888"><I>   56   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *r_y;
+<A NAME="57"><FONT COLOR="#888888"><I>   57   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *s_y;
+<A NAME="58"><FONT COLOR="#888888"><I>   58   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *t_y;
+<A NAME="59"><FONT COLOR="#888888"><I>   59   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *u_y;
+<A NAME="60"><FONT COLOR="#888888"><I>   60   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *v_y;
+<A NAME="61"><FONT COLOR="#888888"><I>   61   </I></FONT></A>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv9[2] = <B>{</B> 0, 0 <B>}</B>;
+<A NAME="62"><FONT COLOR="#888888"><I>   62   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *w_y;
+<A NAME="63"><FONT COLOR="#888888"><I>   63   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *x_y;
+<A NAME="64"><FONT COLOR="#888888"><I>   64   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *y_y;
+<A NAME="65"><FONT COLOR="#888888"><I>   65   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *ab_y;
+<A NAME="66"><FONT COLOR="#888888"><I>   66   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *bb_y;
+<A NAME="67"><FONT COLOR="#888888"><I>   67   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *cb_y;
+<A NAME="68"><FONT COLOR="#888888"><I>   68   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *db_y;
+<A NAME="69"><FONT COLOR="#888888"><I>   69   </I></FONT></A>    <FONT COLOR="#112266"><B>static</B></FONT> <FONT COLOR="#112266"><B>const</B></FONT> int32_T iv10[2] = <B>{</B> 0, 0 <B>}</B>;
+<A NAME="70"><FONT COLOR="#888888"><I>   70   </I></FONT></A>    <FONT COLOR="#112266"><B>const</B></FONT> mxArray *eb_y;
+<A NAME="71"><FONT COLOR="#888888"><I>   71   </I></FONT></A>    y = NULL;
+<A NAME="72"><FONT COLOR="#888888"><I>   72   </I></FONT></A>    emlrtAssign(&amp;y, mxCreateStructMatrix(1, 1, 0, NULL));
+<A NAME="73"><FONT COLOR="#888888"><I>   73   </I></FONT></A>    b_y = NULL;
+<A NAME="74"><FONT COLOR="#888888"><I>   74   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;time);
+<A NAME="75"><FONT COLOR="#888888"><I>   75   </I></FONT></A>    emlrtAssign(&amp;b_y, m0);
+<A NAME="76"><FONT COLOR="#888888"><I>   76   </I></FONT></A>    emlrtAddField(y, b_y, <FONT COLOR="#1122ff">&quot;time&quot;</FONT>, 0);
+<A NAME="77"><FONT COLOR="#888888"><I>   77   </I></FONT></A>    c_y = NULL;
+<A NAME="78"><FONT COLOR="#888888"><I>   78   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;step);
+<A NAME="79"><FONT COLOR="#888888"><I>   79   </I></FONT></A>    emlrtAssign(&amp;c_y, m0);
+<A NAME="80"><FONT COLOR="#888888"><I>   80   </I></FONT></A>    emlrtAddField(y, c_y, <FONT COLOR="#1122ff">&quot;step&quot;</FONT>, 0);
+<A NAME="81"><FONT COLOR="#888888"><I>   81   </I></FONT></A>    d_y = NULL;
+<A NAME="82"><FONT COLOR="#888888"><I>   82   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;MAX_STEP);
+<A NAME="83"><FONT COLOR="#888888"><I>   83   </I></FONT></A>    emlrtAssign(&amp;d_y, m0);
+<A NAME="84"><FONT COLOR="#888888"><I>   84   </I></FONT></A>    emlrtAddField(y, d_y, <FONT COLOR="#1122ff">&quot;MAX_STEP&quot;</FONT>, 0);
+<A NAME="85"><FONT COLOR="#888888"><I>   85   </I></FONT></A>    e_y = NULL;
+<A NAME="86"><FONT COLOR="#888888"><I>   86   </I></FONT></A>    m0 = mxCreateLogicalScalar(u-&gt;gravity);
+<A NAME="87"><FONT COLOR="#888888"><I>   87   </I></FONT></A>    emlrtAssign(&amp;e_y, m0);
+<A NAME="88"><FONT COLOR="#888888"><I>   88   </I></FONT></A>    emlrtAddField(y, e_y, <FONT COLOR="#1122ff">&quot;gravity&quot;</FONT>, 0);
+<A NAME="89"><FONT COLOR="#888888"><I>   89   </I></FONT></A>    f_y = NULL;
+<A NAME="90"><FONT COLOR="#888888"><I>   90   </I></FONT></A>    m0 = mxCreateNumericArray(1, (int32_T *)&amp;iv3, mxDOUBLE_CLASS, mxREAL);
+<A NAME="91"><FONT COLOR="#888888"><I>   91   </I></FONT></A>    pData = (real_T (*)[])mxGetPr(m0);
+<A NAME="92"><FONT COLOR="#888888"><I>   92   </I></FONT></A>    <FONT COLOR="#112266"><B>for</B></FONT> (i = 0; i &lt; 3; i++) <B>{</B>
+<A NAME="93"><FONT COLOR="#888888"><I>   93   </I></FONT></A>        (*pData)[i] = u-&gt;gravityVector[i];
+<A NAME="94"><FONT COLOR="#888888"><I>   94   </I></FONT></A>    <B>}</B>
+<A NAME="95"><FONT COLOR="#888888"><I>   95   </I></FONT></A>    emlrtAssign(&amp;f_y, m0);
+<A NAME="96"><FONT COLOR="#888888"><I>   96   </I></FONT></A>    emlrtAddField(y, f_y, <FONT COLOR="#1122ff">&quot;gravityVector&quot;</FONT>, 0);
+<A NAME="97"><FONT COLOR="#888888"><I>   97   </I></FONT></A>    g_y = NULL;
+<A NAME="98"><FONT COLOR="#888888"><I>   98   </I></FONT></A>    m0 = mxCreateLogicalScalar(u-&gt;jointCorrection);
+<A NAME="99"><FONT COLOR="#888888"><I>   99   </I></FONT></A>    emlrtAssign(&amp;g_y, m0);
+<A NAME="100"><FONT COLOR="#888888"><I>  100   </I></FONT></A>    emlrtAddField(y, g_y, <FONT COLOR="#1122ff">&quot;jointCorrection&quot;</FONT>, 0);
+<A NAME="101"><FONT COLOR="#888888"><I>  101   </I></FONT></A>    h_y = NULL;
+<A NAME="102"><FONT COLOR="#888888"><I>  102   </I></FONT></A>    m0 = mxCreateLogicalScalar(u-&gt;record);
+<A NAME="103"><FONT COLOR="#888888"><I>  103   </I></FONT></A>    emlrtAssign(&amp;h_y, m0);
+<A NAME="104"><FONT COLOR="#888888"><I>  104   </I></FONT></A>    emlrtAddField(y, h_y, <FONT COLOR="#1122ff">&quot;record&quot;</FONT>, 0);
+<A NAME="105"><FONT COLOR="#888888"><I>  105   </I></FONT></A>    i_y = NULL;
+<A NAME="106"><FONT COLOR="#888888"><I>  106   </I></FONT></A>    m0 = mxCreateCharArray(2, iv4);
+<A NAME="107"><FONT COLOR="#888888"><I>  107   </I></FONT></A>    emlrtAssign(&amp;i_y, m0);
+<A NAME="108"><FONT COLOR="#888888"><I>  108   </I></FONT></A>    emlrtAddField(y, i_y, <FONT COLOR="#1122ff">&quot;record_directory&quot;</FONT>, 0);
+<A NAME="109"><FONT COLOR="#888888"><I>  109   </I></FONT></A>    j_y = NULL;
+<A NAME="110"><FONT COLOR="#888888"><I>  110   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;record_fileID);
+<A NAME="111"><FONT COLOR="#888888"><I>  111   </I></FONT></A>    emlrtAssign(&amp;j_y, m0);
+<A NAME="112"><FONT COLOR="#888888"><I>  112   </I></FONT></A>    emlrtAddField(y, j_y, <FONT COLOR="#1122ff">&quot;record_fileID&quot;</FONT>, 0);
+<A NAME="113"><FONT COLOR="#888888"><I>  113   </I></FONT></A>    k_y = NULL;
+<A NAME="114"><FONT COLOR="#888888"><I>  114   </I></FONT></A>    m0 = mxCreateLogicalScalar(u-&gt;FRICTION);
+<A NAME="115"><FONT COLOR="#888888"><I>  115   </I></FONT></A>    emlrtAssign(&amp;k_y, m0);
+<A NAME="116"><FONT COLOR="#888888"><I>  116   </I></FONT></A>    emlrtAddField(y, k_y, <FONT COLOR="#1122ff">&quot;FRICTION&quot;</FONT>, 0);
+<A NAME="117"><FONT COLOR="#888888"><I>  117   </I></FONT></A>    l_y = NULL;
+<A NAME="118"><FONT COLOR="#888888"><I>  118   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;num_fricdirs);
+<A NAME="119"><FONT COLOR="#888888"><I>  119   </I></FONT></A>    emlrtAssign(&amp;l_y, m0);
+<A NAME="120"><FONT COLOR="#888888"><I>  120   </I></FONT></A>    emlrtAddField(y, l_y, <FONT COLOR="#1122ff">&quot;num_fricdirs&quot;</FONT>, 0);
+<A NAME="121"><FONT COLOR="#888888"><I>  121   </I></FONT></A>    m_y = NULL;
+<A NAME="122"><FONT COLOR="#888888"><I>  122   </I></FONT></A>    m0 = mxCreateNumericArray(2, (int32_T *)&amp;iv5, mxDOUBLE_CLASS, mxREAL);
+<A NAME="123"><FONT COLOR="#888888"><I>  123   </I></FONT></A>    emlrtAssign(&amp;m_y, m0);
+<A NAME="124"><FONT COLOR="#888888"><I>  124   </I></FONT></A>    emlrtAddField(y, m_y, <FONT COLOR="#1122ff">&quot;userFunction&quot;</FONT>, 0);
+<A NAME="125"><FONT COLOR="#888888"><I>  125   </I></FONT></A>    n_y = NULL;
+<A NAME="126"><FONT COLOR="#888888"><I>  126   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;num_bodies);
+<A NAME="127"><FONT COLOR="#888888"><I>  127   </I></FONT></A>    emlrtAssign(&amp;n_y, m0);
+<A NAME="128"><FONT COLOR="#888888"><I>  128   </I></FONT></A>    emlrtAddField(y, n_y, <FONT COLOR="#1122ff">&quot;num_bodies&quot;</FONT>, 0);
+<A NAME="129"><FONT COLOR="#888888"><I>  129   </I></FONT></A>    o_y = NULL;
+<A NAME="130"><FONT COLOR="#888888"><I>  130   </I></FONT></A>    m0 = mxCreateNumericArray(2, (int32_T *)&amp;iv6, mxDOUBLE_CLASS, mxREAL);
+<A NAME="131"><FONT COLOR="#888888"><I>  131   </I></FONT></A>    emlrtAssign(&amp;o_y, m0);
+<A NAME="132"><FONT COLOR="#888888"><I>  132   </I></FONT></A>    emlrtAddField(y, o_y, <FONT COLOR="#1122ff">&quot;bodies&quot;</FONT>, 0);
+<A NAME="133"><FONT COLOR="#888888"><I>  133   </I></FONT></A>    p_y = NULL;
+<A NAME="134"><FONT COLOR="#888888"><I>  134   </I></FONT></A>    m0 = mxCreateNumericArray(2, (int32_T *)&amp;iv7, mxDOUBLE_CLASS, mxREAL);
+<A NAME="135"><FONT COLOR="#888888"><I>  135   </I></FONT></A>    emlrtAssign(&amp;p_y, m0);
+<A NAME="136"><FONT COLOR="#888888"><I>  136   </I></FONT></A>    emlrtAddField(y, p_y, <FONT COLOR="#1122ff">&quot;contacts&quot;</FONT>, 0);
+<A NAME="137"><FONT COLOR="#888888"><I>  137   </I></FONT></A>    q_y = NULL;
+<A NAME="138"><FONT COLOR="#888888"><I>  138   </I></FONT></A>    m0 = mxCreateNumericArray(2, (int32_T *)&amp;iv8, mxDOUBLE_CLASS, mxREAL);
+<A NAME="139"><FONT COLOR="#888888"><I>  139   </I></FONT></A>    emlrtAssign(&amp;q_y, m0);
+<A NAME="140"><FONT COLOR="#888888"><I>  140   </I></FONT></A>    emlrtAddField(y, q_y, <FONT COLOR="#1122ff">&quot;joints&quot;</FONT>, 0);
+<A NAME="141"><FONT COLOR="#888888"><I>  141   </I></FONT></A>    r_y = NULL;
+<A NAME="142"><FONT COLOR="#888888"><I>  142   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;num_jointConstraints);
+<A NAME="143"><FONT COLOR="#888888"><I>  143   </I></FONT></A>    emlrtAssign(&amp;r_y, m0);
+<A NAME="144"><FONT COLOR="#888888"><I>  144   </I></FONT></A>    emlrtAddField(y, r_y, <FONT COLOR="#1122ff">&quot;num_jointConstraints&quot;</FONT>, 0);
+<A NAME="145"><FONT COLOR="#888888"><I>  145   </I></FONT></A>    s_y = NULL;
+<A NAME="146"><FONT COLOR="#888888"><I>  146   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;num_activeJointBodies);
+<A NAME="147"><FONT COLOR="#888888"><I>  147   </I></FONT></A>    emlrtAssign(&amp;s_y, m0);
+<A NAME="148"><FONT COLOR="#888888"><I>  148   </I></FONT></A>    emlrtAddField(y, s_y, <FONT COLOR="#1122ff">&quot;num_activeJointBodies&quot;</FONT>, 0);
+<A NAME="149"><FONT COLOR="#888888"><I>  149   </I></FONT></A>    t_y = NULL;
+<A NAME="150"><FONT COLOR="#888888"><I>  150   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;num_activeBodies);
+<A NAME="151"><FONT COLOR="#888888"><I>  151   </I></FONT></A>    emlrtAssign(&amp;t_y, m0);
+<A NAME="152"><FONT COLOR="#888888"><I>  152   </I></FONT></A>    emlrtAddField(y, t_y, <FONT COLOR="#1122ff">&quot;num_activeBodies&quot;</FONT>, 0);
+<A NAME="153"><FONT COLOR="#888888"><I>  153   </I></FONT></A>    u_y = NULL;
+<A NAME="154"><FONT COLOR="#888888"><I>  154   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;num_dynamicBodies);
+<A NAME="155"><FONT COLOR="#888888"><I>  155   </I></FONT></A>    emlrtAssign(&amp;u_y, m0);
+<A NAME="156"><FONT COLOR="#888888"><I>  156   </I></FONT></A>    emlrtAddField(y, u_y, <FONT COLOR="#1122ff">&quot;num_dynamicBodies&quot;</FONT>, 0);
+<A NAME="157"><FONT COLOR="#888888"><I>  157   </I></FONT></A>    v_y = NULL;
+<A NAME="158"><FONT COLOR="#888888"><I>  158   </I></FONT></A>    m0 = mxCreateNumericArray(2, (int32_T *)&amp;iv9, mxDOUBLE_CLASS, mxREAL);
+<A NAME="159"><FONT COLOR="#888888"><I>  159   </I></FONT></A>    emlrtAssign(&amp;v_y, m0);
+<A NAME="160"><FONT COLOR="#888888"><I>  160   </I></FONT></A>    emlrtAddField(y, v_y, <FONT COLOR="#1122ff">&quot;solution_error&quot;</FONT>, 0);
+<A NAME="161"><FONT COLOR="#888888"><I>  161   </I></FONT></A>    w_y = NULL;
+<A NAME="162"><FONT COLOR="#888888"><I>  162   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;epsilon);
+<A NAME="163"><FONT COLOR="#888888"><I>  163   </I></FONT></A>    emlrtAssign(&amp;w_y, m0);
+<A NAME="164"><FONT COLOR="#888888"><I>  164   </I></FONT></A>    emlrtAddField(y, w_y, <FONT COLOR="#1122ff">&quot;epsilon&quot;</FONT>, 0);
+<A NAME="165"><FONT COLOR="#888888"><I>  165   </I></FONT></A>    x_y = NULL;
+<A NAME="166"><FONT COLOR="#888888"><I>  166   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;figure);
+<A NAME="167"><FONT COLOR="#888888"><I>  167   </I></FONT></A>    emlrtAssign(&amp;x_y, m0);
+<A NAME="168"><FONT COLOR="#888888"><I>  168   </I></FONT></A>    emlrtAddField(y, x_y, <FONT COLOR="#1122ff">&quot;figure&quot;</FONT>, 0);
+<A NAME="169"><FONT COLOR="#888888"><I>  169   </I></FONT></A>    y_y = NULL;
+<A NAME="170"><FONT COLOR="#888888"><I>  170   </I></FONT></A>    m0 = mxCreateLogicalScalar(u-&gt;draw);
+<A NAME="171"><FONT COLOR="#888888"><I>  171   </I></FONT></A>    emlrtAssign(&amp;y_y, m0);
+<A NAME="172"><FONT COLOR="#888888"><I>  172   </I></FONT></A>    emlrtAddField(y, y_y, <FONT COLOR="#1122ff">&quot;draw&quot;</FONT>, 0);
+<A NAME="173"><FONT COLOR="#888888"><I>  173   </I></FONT></A>    ab_y = NULL;
+<A NAME="174"><FONT COLOR="#888888"><I>  174   </I></FONT></A>    m0 = mxCreateLogicalScalar(u-&gt;drawContacts);
+<A NAME="175"><FONT COLOR="#888888"><I>  175   </I></FONT></A>    emlrtAssign(&amp;ab_y, m0);
+<A NAME="176"><FONT COLOR="#888888"><I>  176   </I></FONT></A>    emlrtAddField(y, ab_y, <FONT COLOR="#1122ff">&quot;drawContacts&quot;</FONT>, 0);
+<A NAME="177"><FONT COLOR="#888888"><I>  177   </I></FONT></A>    bb_y = NULL;
+<A NAME="178"><FONT COLOR="#888888"><I>  178   </I></FONT></A>    m0 = mxCreateLogicalScalar(u-&gt;drawBoundingBoxes);
+<A NAME="179"><FONT COLOR="#888888"><I>  179   </I></FONT></A>    emlrtAssign(&amp;bb_y, m0);
+<A NAME="180"><FONT COLOR="#888888"><I>  180   </I></FONT></A>    emlrtAddField(y, bb_y, <FONT COLOR="#1122ff">&quot;drawBoundingBoxes&quot;</FONT>, 0);
+<A NAME="181"><FONT COLOR="#888888"><I>  181   </I></FONT></A>    cb_y = NULL;
+<A NAME="182"><FONT COLOR="#888888"><I>  182   </I></FONT></A>    m0 = mxCreateLogicalScalar(u-&gt;drawJoints);
+<A NAME="183"><FONT COLOR="#888888"><I>  183   </I></FONT></A>    emlrtAssign(&amp;cb_y, m0);
+<A NAME="184"><FONT COLOR="#888888"><I>  184   </I></FONT></A>    emlrtAddField(y, cb_y, <FONT COLOR="#1122ff">&quot;drawJoints&quot;</FONT>, 0);
+<A NAME="185"><FONT COLOR="#888888"><I>  185   </I></FONT></A>    db_y = NULL;
+<A NAME="186"><FONT COLOR="#888888"><I>  186   </I></FONT></A>    m0 = mxCreateNumericArray(2, (int32_T *)&amp;iv10, mxDOUBLE_CLASS, mxREAL);
+<A NAME="187"><FONT COLOR="#888888"><I>  187   </I></FONT></A>    emlrtAssign(&amp;db_y, m0);
+<A NAME="188"><FONT COLOR="#888888"><I>  188   </I></FONT></A>    emlrtAddField(y, db_y, <FONT COLOR="#1122ff">&quot;contactGraphics&quot;</FONT>, 0);
+<A NAME="189"><FONT COLOR="#888888"><I>  189   </I></FONT></A>    eb_y = NULL;
+<A NAME="190"><FONT COLOR="#888888"><I>  190   </I></FONT></A>    m0 = mxCreateDoubleScalar(u-&gt;h);
+<A NAME="191"><FONT COLOR="#888888"><I>  191   </I></FONT></A>    emlrtAssign(&amp;eb_y, m0);
+<A NAME="192"><FONT COLOR="#888888"><I>  192   </I></FONT></A>    emlrtAddField(y, eb_y, <FONT COLOR="#1122ff">&quot;h&quot;</FONT>, 0);
+<A NAME="193"><FONT COLOR="#888888"><I>  193   </I></FONT></A>    <FONT COLOR="#112266"><B>return</B></FONT> y;
+<A NAME="194"><FONT COLOR="#888888"><I>  194   </I></FONT></A><B>}</B>
+<A NAME="195"><FONT COLOR="#888888"><I>  195   </I></FONT></A>
+<A NAME="196"><FONT COLOR="#888888"><I>  196   </I></FONT></A><FONT COLOR="#112266"><B>void</B></FONT> <A NAME="fcn_sphere_on_sphere_api">sphere_on_sphere_api</A>(<FONT COLOR="#112266"><B>const</B></FONT> mxArray *plhs[1])
+<A NAME="197"><FONT COLOR="#888888"><I>  197   </I></FONT></A><B>{</B>
+<A NAME="198"><FONT COLOR="#888888"><I>  198   </I></FONT></A>    <A HREF="sphere_on_sphere_types_h.html#type_struct_T" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_struct_T');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">struct_T</FONT></A> sim;
+<A NAME="199"><FONT COLOR="#888888"><I>  199   </I></FONT></A>    <FONT COLOR="#117755"><I>/* Invoke the target function */</I></FONT>
+<A NAME="200"><FONT COLOR="#888888"><I>  200   </I></FONT></A>    sim = <A HREF="sphere_on_sphere_c.html#fcn_sphere_on_sphere" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_sphere_on_sphere');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">sphere_on_sphere</FONT></A>();
+<A NAME="201"><FONT COLOR="#888888"><I>  201   </I></FONT></A>    <FONT COLOR="#117755"><I>/* Marshall function outputs */</I></FONT>
+<A NAME="202"><FONT COLOR="#888888"><I>  202   </I></FONT></A>    plhs[0] = <A HREF="sphere_on_sphere_api_c.html#fcn_emlrt_marshallOut" ONCLICK="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_emlrt_marshallOut');" TARGET="rtwreport_document_frame"><FONT COLOR="#1122aa">emlrt_marshallOut</FONT></A>(&amp;sim);
+<A NAME="203"><FONT COLOR="#888888"><I>  203   </I></FONT></A><B>}</B>
+<A NAME="204"><FONT COLOR="#888888"><I>  204   </I></FONT></A><FONT COLOR="#117755"><I>/* End of code generation (sphere_on_sphere_api.c) */</I></FONT>
+<A NAME="205"><FONT COLOR="#888888"><I>  205   </I></FONT></A></PRE>
+</TD></TR></TABLE>
+</P>
+</BODY>
+</HTML>

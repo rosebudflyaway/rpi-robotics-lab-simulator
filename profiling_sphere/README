@@ -1,0 +1,32 @@
+The test case is on spheres only right now, so please disregard the other meshed object files: Body_Edge.h, Body_Face.h, Body_polymesh.h, Body_trimesh.h, Body_vertex.h and the corresponding cpp files. 
+
+The make file is located at .../profiling_spheres/nbproject
+Add the dependent libraries to the Makefile-Debug.mk
+
+The executable after compiling and linking is located at .../profiling_spheres/dist/Debug/GNU-Linux-x86
+
+
+
+Before compiling the code, make sure the Armadillo, Lapack/Blas are installed, manually add the PATH to the library in the Makefile-Debug.mk file;
+
+Change the directory in line 44 and line 59 in main.cpp to your local directory
+
+Following are the procedures to compile, link and run the code.
+1. To profile the performance of the code, I use gprof as the profiling tool, by adding -pg tag to both compile and link in the makefile, which is done already (DONE)
+
+2. $ make 
+
+3. $ cd ./dist/Debug/GNU-Linux-x86
+   $ ./rpi-sim    
+   $ ls 
+   There will be a file named 'gmon.out'
+
+4. $ gprof rpi-sim gmon.out >> profiling.txt 
+   This will convert gmon.out to a readable txt file 'profiling.txt' 
+
+
+5. -b suppress verbose blurbs using -b: 
+   $ gprof -b rpi-sim gmon.out >> profiling_b.txt 
+
+6. -p only get the flat profile 
+   $ gprof -b -p rpi-sim gmon.out >> profiling_p.txt 

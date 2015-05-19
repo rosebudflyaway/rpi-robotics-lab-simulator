@@ -1,0 +1,151 @@
+/* 
+ * File:   main.cpp
+ * Author: Jedediyah Williams
+ *
+ * Created on November 10, 2012, 4:34 PM
+ * Modified on October 22, 2012, 3:07 PM
+ */
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
+#include <vector>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iomanip>
+
+
+
+#include "Simulation.h" //TODO: change it to SimulatorDefinitions.h
+#include "SimulatorDefenitions.h"
+using namespace std;
+
+void new_func1(void)
+{
+    int i=0; 
+    for(; i<0xffffffee; i++);
+    return;
+}
+
+void func1(void)
+{
+    int i=0; 
+    for(; i<0xffffffff; i++);
+    new_func1();
+    return;
+}
+
+static void func2(void)
+{
+    int i=0; 
+    for(; i<0xffffffaa; i++);
+    return;
+}
+
+
+
+// Main routine.
+int main( ) 
+{
+    // define a simulation
+    static Simulation SIM;
+
+    // number of spheres N = 10;
+    int N = 10;
+    int MAX_STEP = 500;
+
+    int i = 0;
+
+    for(; i<0xffffff; i++);
+    func1();
+    func2();
+
+
+    double all_pos[] = {
+    -0.4657, 0.3349, 2.5780, -0.6090, 0.1717, 2.9202, -0.0660, 0.2591, 3.4325, 
+    -0.2397, 0.2592, 2.8659, 0.5471, 0.5327, 2.6103, 0.5919, -0.3764, 2.7089, 
+    -0.6093, 0.7037, 3.2329, 0.0360, 0.7899, 2.5499, 0.6926, 0.7564, 2.5072, 
+    -0.5778, 0.3140, 2.3501};
+    double all_radius[] = {
+                        0.1263, 0.1265, 0.1431, 0.1242, 0.1197, 
+                        0.1336, 0.1371, 0.1260, 0.1174, 0.1075};
+    double all_mass[] = { 
+                       4.2166, 4.2414, 6.1318, 4.0167, 3.5896, 
+                       4.9911, 5.3928, 4.1898, 3.3877, 2.6019};
+    double all_initial_vel[] = 
+                          {1.0486, 0.6607, 3.5088, 1.0635, 1.1569, 1.0530, 
+                           -1.2884, -0.3712, 0.2422, -0.5640, 0.5551, 0.4432,
+                           -0.8951, -0.4093, 0.8391, 0.4093, -0.9526, 1.3173,
+                            0.0780, 1.3244, 0.7868, -0.1345, -1.1714, -0.3853,
+                            0.3105, -0.2495, 1.5037, -0.8927, 1.9085, 1.1222};
+    double all_ang_vel[] = 
+                          {1.0470, -0.2269, -0.1625, 0.6901, 0.5558, -1.1203,
+                           -1.5327, -1.0979, -1.4158, 0.0596, -0.4113, -0.3680,
+                           -1.3610, 0.7796, 0.4394, -0.0896, 1.0212, -0.8740,
+                            0.4147, 0.3484, 0.3493, -0.7292, 0.3268, -0.5149,
+                           -0.8964, -1.2033, 1.0378, -0.8459, -0.1729, -1.2087};
+    
+    /*
+    for (i=0; i<3*N; i++)
+    {
+        cout << allPos[i] << endl;
+    }
+    cout << endl;
+    */
+
+    // add body
+    for(i=0; i<N; i++)
+    {
+        Body_sphere sphere;
+        sphere.setName("sphere");
+        sphere.setRadius(all_radius[i]);
+        sphere.setMass(all_mass[i]);
+        sphere.setPosition(all_pos[3*i], all_pos[3*i+1], all_pos[3*i+2]);
+        sphere.setQuaternion(1.0, 0.0, 0.0, 0.0);
+        sphere.setVelocity(all_initial_vel[3*i], all_initial_vel[3*i+1], all_initial_vel[3*i+2], all_ang_vel[3*i], all_ang_vel[3*i+1], all_ang_vel[3*i+2]);
+        sphere.setFext(0.0, 0.0, -9.8, 0.0, 0.0, 0.0);
+        sphere.setMu(0.5);
+        sphere.setStatic(false);
+        sphere.setBoundingRadius(1.1*all_radius[i]);
+
+        SIM.addBody(sphere);
+    }
+
+    SIM.setRun(true); 
+
+    cout << SIM.num_spheres() << endl;
+    cout << "Print body information before start simulation" << endl;
+    SIM.printBodies();
+    cout << "Start Simulation ..." << endl;
+
+    FILE *fp;
+    double t1, t2, t3;   // cd;  dynamics;  update
+    t1 = 0.0;
+    t2 = 0.0; 
+    t3 = 0.0;
+    fp = fopen("file.txt", "w+");
+
+    for (i=0; i<MAX_STEP; i++)
+    {
+        SIM.step();
+        t1 += SIM.getTimeCD();
+        t2 += SIM.getTimeDynamics();
+        t3 += SIM.getTimeUpdate();
+        fprintf(fp, "%-10.4f, %-10.4f, %-10.4f\n",  t1, t2, t3);
+    }
+    fclose(fp);
+        
+    //printf("%-10.4f, %-10.4f, %-10.4f\n",  t1, t2, t3);
+    //cout << t1 << ", " << t2 << ", "  << t3 << endl;
+/*
+    cout << setprecision(9) << t1 << endl;
+    cout << setprecision(9) << t2 << endl;
+    cout << setprecision(9) << t3 << endl;
+    */
+
+    cout << "Simulation DONE." << endl;
+    SIM.printBodies();
+    return 0;
+}
+

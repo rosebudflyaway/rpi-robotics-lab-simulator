@@ -1,0 +1,9 @@
+MEX {
+	global:
+		mexFunction;
+		sphere_on_sphere;
+		sphere_on_sphere_initialize;
+		sphere_on_sphere_terminate;
+	local:
+		*;
+};

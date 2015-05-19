@@ -1,0 +1,42 @@
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="46,1" id="srcline1"> 1</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="46,2" id="srcline2"> 2</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="46,3" id="srcline3"> 3</a></span><span class="line"><span class="comment">% This function iterates over all simulation bodies and updates their </span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,4" id="srcline4"> 4</a></span><span class="line"><span class="comment">% position as well as type-specific properties like vertex positions for </span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,5" id="srcline5"> 5</a></span><span class="line"><span class="comment">% mesh bodies.  </span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,6" id="srcline6"> 6</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="46,7" id="srcline7"> 7</a></span><span class="line"><span class="keyword">function</span> <span class="var type1" id="S2T6U3">sim</span> = body_updateAllBodies( <span class="mxinfo" id="T6:U2"><span class="mxinfo" id="T6:U3"><span class="var type1" id="S2T6U6">sim</span></span></span> )</span></span>
+<span class="srcline"><span class="lineno"><a href="46,8" id="srcline8"> 8</a></span><span class="line"><span class="comment">%#codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,9" id="srcline9"> 9</a></span><span class="line">    <span class="comment">% Manually add here on 10/14/2014 to make sure the object is not moving before the grasp is complete</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,10" id="srcline10">10</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="46,11" id="srcline11">11</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="46,12" id="srcline12">12</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="46,13" id="srcline13">13</a></span><span class="line">    <span class="comment">% Apply results from solution, as well as update bodies not in contact.   </span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,14" id="srcline14">14</a></span><span class="line">    <span class="keyword">for</span> <span class="mxinfo" id="T1:U5"><span class="var type1" id="S3T1U9">i</span></span> = 1:length(<span class="var type1" id="S2T6U15">sim</span>.bodies)     </span></span>
+<span class="srcline"><span class="lineno"><a href="46,15" id="srcline15">15</a></span><span class="line">        <span class="var type0" id="S5T0U19">body</span> = <span class="var type2" id="S2T0U22">sim</span>.bodies(<span class="var type2" id="S3T0U24">i</span>);  </span></span>
+<span class="srcline"><span class="lineno"><a href="46,16" id="srcline16">16</a></span><span class="line">        <span class="keyword">if</span> ~<span class="var type0" id="S5T0U29">body</span>.dynamic, <span class="keyword">continue</span>; <span class="keyword">end</span>;    <span class="comment">% Don't update static bodies. </span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,17" id="srcline17">17</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="46,18" id="srcline18">18</a></span><span class="line">        <span class="var type0" id="S6T0U34">bodyCID</span> = <span class="var type0" id="S5T0U36">body</span>.bodyContactID; </span></span>
+<span class="srcline"><span class="lineno"><a href="46,19" id="srcline19">19</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="46,20" id="srcline20">20</a></span><span class="line">        <span class="keyword">if</span> <span class="var type0" id="S5T0U41">body</span>.active  <span class="comment">% Body had &gt;= 1 constraint</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,21" id="srcline21">21</a></span><span class="line">            <span class="var type2" id="S2T0U47">sim</span>.bodies(<span class="var type2" id="S3T0U49">i</span>) = body_updatePosition(<span class="var type0" id="S5T0U52">body</span>, <span class="var type2" id="S2T0U54">sim</span>.h, <span class="var type2" id="S2T0U58">sim</span>.newNU(6*<span class="var type0" id="S6T0U64">bodyCID</span>-5:6*<span class="var type0" id="S6T0U68">bodyCID</span>) );</span></span>
+<span class="srcline"><span class="lineno"><a href="46,22" id="srcline22">22</a></span><span class="line">        <span class="keyword">else</span>            <span class="comment">% Body had no constraints (just apply external forces)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,23" id="srcline23">23</a></span><span class="line">            <span class="var type2" id="S2T0U74">sim</span>.bodies(<span class="var type2" id="S3T0U76">i</span>) = body_updatePosition(<span class="var type0" id="S5T0U79">body</span>, <span class="var type2" id="S2T0U81">sim</span>.h);</span></span>
+<span class="srcline"><span class="lineno"><a href="46,24" id="srcline24">24</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,25" id="srcline25">25</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="46,26" id="srcline26">26</a></span><span class="line">         </span></span>
+<span class="srcline"><span class="lineno"><a href="46,27" id="srcline27">27</a></span><span class="line">        <span class="comment">% Do type-dependent updates</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,28" id="srcline28">28</a></span><span class="line">        <span class="keyword">if</span> strcmp(<span class="var type0" id="S5T0U88">body</span>.type,<span class="string">'mesh'</span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="46,29" id="srcline29">29</a></span><span class="line">           <span class="var type2" id="S2T0U95">sim</span>.bodies(<span class="var type2" id="S3T0U97">i</span>) = body_updateMesh(<span class="var type2" id="S2T0U102">sim</span>.bodies(<span class="var type2" id="S3T0U104">i</span>)); </span></span>
+<span class="srcline"><span class="lineno"><a href="46,30" id="srcline30">30</a></span><span class="line">        <span class="comment">%elseif strcmp(body.type,'sphere')</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,31" id="srcline31">31</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,32" id="srcline32">32</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="46,33" id="srcline33">33</a></span><span class="line">        <span class="comment">% Update graphics</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,34" id="srcline34">34</a></span><span class="line">        <span class="keyword">if</span> <span class="var type2" id="S2T0U108">sim</span>.draw</span></span>
+<span class="srcline"><span class="lineno"><a href="46,35" id="srcline35">35</a></span><span class="line">            body_draw(<span class="var type2" id="S2T0U115">sim</span>.bodies(<span class="var type2" id="S3T0U117">i</span>)); </span></span>
+<span class="srcline"><span class="lineno"><a href="46,36" id="srcline36">36</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,37" id="srcline37">37</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,38" id="srcline38">38</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="46,39" id="srcline39">39</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="46,40" id="srcline40">40</a></span><span class="line"></span></span>
+</pre>

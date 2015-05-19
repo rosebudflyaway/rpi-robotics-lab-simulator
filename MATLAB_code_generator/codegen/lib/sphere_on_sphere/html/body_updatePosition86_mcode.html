@@ -1,0 +1,71 @@
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="40,1" id="srcline1"> 1</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,2" id="srcline2"> 2</a></span><span class="line"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,3" id="srcline3"> 3</a></span><span class="line"><span class="comment">% Kinematic update with or without velocity</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,4" id="srcline4"> 4</a></span><span class="line"><span class="comment">% Update the position and orientation of a body, including world coordinates and face normals.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,5" id="srcline5"> 5</a></span><span class="line"><span class="comment">% INPUTS: </span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,6" id="srcline6"> 6</a></span><span class="line"><span class="comment">%       B       - A Body_mesh struct to be updated. </span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,7" id="srcline7"> 7</a></span><span class="line"><span class="comment">%       h       - The timestep size in seconds.  </span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,8" id="srcline8"> 8</a></span><span class="line"><span class="comment">%       newNu   - (optional) The body's velocity at the end of the current timestep.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,9" id="srcline9"> 9</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,10" id="srcline10">10</a></span><span class="line"><span class="keyword">function</span> <span class="var type1" id="S2T34U3">B</span> = body_updatePosition( <span class="mxinfo" id="T34:U2"><span class="mxinfo" id="T34:U3"><span class="var type1" id="S2T34U6">B</span></span></span>, <span class="var type1" id="S3T1U7">h</span>, <span class="var type1" id="S4T47U8">varargin</span> )</span></span>
+<span class="srcline"><span class="lineno"><a href="40,11" id="srcline11">11</a></span><span class="line"><span class="comment">%#codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,12" id="srcline12">12</a></span><span class="line">    <span class="comment">% Do not update static bodies</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,13" id="srcline13">13</a></span><span class="line">    <span class="comment">%if ~B.dynamic, return; end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,14" id="srcline14">14</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,15" id="srcline15">15</a></span><span class="line">    <span class="comment">% If there is a newNu assigned</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,16" id="srcline16">16</a></span><span class="line">    <span class="keyword">if</span> nargin &gt; 2</span></span>
+<span class="srcline"><span class="lineno"><a href="40,17" id="srcline17">17</a></span><span class="line">        <span class="var type0" id="S6T0U17">newNu</span> = <span class="var type2" id="S4T0U19">varargin</span>{1}; </span></span>
+<span class="srcline"><span class="lineno"><a href="40,18" id="srcline18">18</a></span><span class="line">        <span class="comment">% Velocity </span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,19" id="srcline19">19</a></span><span class="line">        <span class="var type2" id="S2T0U24">B</span>.nu = <span class="var type0" id="S6T0U26">newNu</span>;  </span></span>
+<span class="srcline"><span class="lineno"><a href="40,20" id="srcline20">20</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,21" id="srcline21">21</a></span><span class="line">        <span class="comment">% Translation</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,22" id="srcline22">22</a></span><span class="line">        <span class="var type2" id="S2T0U30">B</span>.u = <span class="var type2" id="S2T0U34">B</span>.u + <span class="var type2" id="S3T0U37">h</span>*<span class="var type0" id="S6T0U39">newNu</span>(1:3);   </span></span>
+<span class="srcline"><span class="lineno"><a href="40,23" id="srcline23">23</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,24" id="srcline24">24</a></span><span class="line">        <span class="comment">% Rotation </span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,25" id="srcline25">25</a></span><span class="line">        <span class="var type2" id="S7T0U45">w</span> = <span class="var type0" id="S6T0U48">newNu</span>(4:6) * <span class="var type2" id="S3T0U52">h</span>;            </span></span>
+<span class="srcline"><span class="lineno"><a href="40,26" id="srcline26">26</a></span><span class="line">        <span class="var type2" id="S8T0U55">wn</span> = norm(<span class="var type2" id="S7T0U58">w</span>); </span></span>
+<span class="srcline"><span class="lineno"><a href="40,27" id="srcline27">27</a></span><span class="line">        <span class="keyword">if</span> <span class="var type2" id="S8T0U62">wn</span> ~= 0</span></span>
+<span class="srcline"><span class="lineno"><a href="40,28" id="srcline28">28</a></span><span class="line">            <span class="var type2" id="S2T0U67">B</span>.quat = qtmultiply( [cos(<span class="var type2" id="S8T0U76">wn</span>/2); (<span class="var type2" id="S7T0U82">w</span>/<span class="var type2" id="S8T0U83">wn</span>)*sin(<span class="var type2" id="S8T0U87">wn</span>/2)], <span class="var type2" id="S2T0U90">B</span>.quat ); </span></span>
+<span class="srcline"><span class="lineno"><a href="40,29" id="srcline29">29</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,30" id="srcline30">30</a></span><span class="line">    <span class="comment">% Update body purely by external force Fext</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,31" id="srcline31">31</a></span><span class="line">    <span class="keyword">else</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,32" id="srcline32">32</a></span><span class="line">        <span class="comment">% Velocity </span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,33" id="srcline33">33</a></span><span class="line">        <span class="mxinfo" id="T21:U7"><span class="mxinfo" id="T21:U8"><span class="var type1" id="S2T34U96">B</span>.nu</span> = <span class="mxinfo" id="T21:U10"><span class="mxinfo" id="T21:U11"><span class="var type1" id="S2T34U100">B</span>.nu</span> + <span class="mxinfo" id="T21:U13">(<span class="mxinfo" id="T21:U14"><span class="mxinfo" id="T21:U15"><span class="var type1" id="S2T34U106">B</span>.Fext</span>/<span class="mxinfo" id="T1:U17"><span class="var type1" id="S2T34U109">B</span>.mass</span></span>)*<span class="mxinfo" id="T1:U19"><span class="var type1" id="S3T1U111">h</span></span></span></span></span>;   </span></span>
+<span class="srcline"><span class="lineno"><a href="40,34" id="srcline34">34</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,35" id="srcline35">35</a></span><span class="line">        <span class="comment">% Translation</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,36" id="srcline36">36</a></span><span class="line">        <span class="mxinfo" id="T7:U21"><span class="mxinfo" id="T7:U22"><span class="var type1" id="S2T34U115">B</span>.u</span> = <span class="mxinfo" id="T7:U24"><span class="mxinfo" id="T7:U25"><span class="var type1" id="S2T34U119">B</span>.u</span> + <span class="mxinfo" id="T7:U27"><span class="mxinfo" id="T1:U28"><span class="var type1" id="S3T1U122">h</span></span>*<span class="mxinfo" id="T7:U30"><span class="mxinfo" id="T21:U31"><span class="var type1" id="S2T34U125">B</span>.nu</span>(<span class="mxinfo" id="T7:U33"><span class="mxinfo" id="T1:U34">1</span>:<span class="mxinfo" id="T1:U35">3</span></span>)</span></span></span></span>;   </span></span>
+<span class="srcline"><span class="lineno"><a href="40,37" id="srcline37">37</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,38" id="srcline38">38</a></span><span class="line">        <span class="comment">% Rotation </span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,39" id="srcline39">39</a></span><span class="line">        <span class="mxinfo" id="T7:U36"><span class="var type1" id="S7T7U132">w</span> = <span class="mxinfo" id="T7:U38"><span class="mxinfo" id="T7:U39"><span class="mxinfo" id="T21:U40"><span class="var type1" id="S2T34U136">B</span>.nu</span>(<span class="mxinfo" id="T7:U42"><span class="mxinfo" id="T1:U43">4</span>:<span class="mxinfo" id="T1:U44">6</span></span>)</span> * <span class="mxinfo" id="T1:U45"><span class="var type1" id="S3T1U141">h</span></span></span></span>;            </span></span>
+<span class="srcline"><span class="lineno"><a href="40,40" id="srcline40">40</a></span><span class="line">        <span class="mxinfo" id="T1:U47"><span class="var type1" id="S8T1U144">wn</span> = <span class="mxinfo" id="T1:U49">norm(<span class="var type1" id="S7T7U147">w</span>)</span></span>; </span></span>
+<span class="srcline"><span class="lineno"><a href="40,41" id="srcline41">41</a></span><span class="line">        <span class="keyword">if</span> <span class="mxinfo" id="T4:U51"><span class="var type1" id="S8T1U151">wn</span> ~= <span class="mxinfo" id="T1:U53">0</span></span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,42" id="srcline42">42</a></span><span class="line">            <span class="var type1" id="S2T34U156">B</span>.quat = <span class="fcn" id="F85N11:B159">qtmultiply</span>( [cos(<span class="var type1" id="S8T1U165">wn</span>/2); (<span class="var type1" id="S7T7U171">w</span>/<span class="var type1" id="S8T1U172">wn</span>)*sin(<span class="var type1" id="S8T1U176">wn</span>/2)], <span class="var type1" id="S2T34U179">B</span>.quat ); </span></span>
+<span class="srcline"><span class="lineno"><a href="40,43" id="srcline43">43</a></span><span class="line">        <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,44" id="srcline44">44</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,45" id="srcline45">45</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="40,46" id="srcline46">46</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="40,47" id="srcline47">47</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,48" id="srcline48">48</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,49" id="srcline49">49</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,50" id="srcline50">50</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,51" id="srcline51">51</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,52" id="srcline52">52</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,53" id="srcline53">53</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,54" id="srcline54">54</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,55" id="srcline55">55</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,56" id="srcline56">56</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,57" id="srcline57">57</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,58" id="srcline58">58</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,59" id="srcline59">59</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,60" id="srcline60">60</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,61" id="srcline61">61</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,62" id="srcline62">62</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,63" id="srcline63">63</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,64" id="srcline64">64</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,65" id="srcline65">65</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,66" id="srcline66">66</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,67" id="srcline67">67</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,68" id="srcline68">68</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="40,69" id="srcline69">69</a></span><span class="line"></span></span>
+</pre>

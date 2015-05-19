@@ -1,0 +1,24 @@
+
+The make file is located in the same directory
+
+Before compiling the code, make sure the OpenGL MATH library
+
+
+Change the directory in line 33 and line 48 in main.cpp to your local directory (hard coded for now.... will change soon)
+
+Following are the procedures to compile, link and run the code.
+
+
+
+1. $ make 
+
+2. $ ./rpi-sim    
+
+
+
+Features: 
+
+1. No C++ class, only C structures, should be friendly for mapping to GPU
+2. Only dependent on GLM library, which also supports cuda
+
+

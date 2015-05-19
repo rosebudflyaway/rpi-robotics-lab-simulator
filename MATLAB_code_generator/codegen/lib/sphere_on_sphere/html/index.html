@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Code Generation Report</title>
+<link rel="stylesheet" type="text/css" href="file:////usr/local/MATLAB/R2011b/toolbox/coder/coder/resources/eml_report.css" />
+<link rel="stylesheet" type="text/css" href="file:////usr/local/MATLAB/R2011b/toolbox/coder/coder/resources/jQuery/ui.resizable.css" />
+<link rel="stylesheet" type="text/css" href="file:////home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere/html/index.css" />
+
+<script type="text/javascript" src="file:////usr/local/MATLAB/R2011b/toolbox/coder/coder/resources/jQuery/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="file:////usr/local/MATLAB/R2011b/toolbox/coder/coder/resources/jQuery/jquery-ui-1.7.custom.min.js"></script>
+<script type="text/javascript" src="file:////usr/local/MATLAB/R2011b/toolbox/coder/coder/resources/jQuery/jquery.tablesorter.mod.js"></script>
+<script type="text/javascript" src="file:////usr/local/MATLAB/R2011b/toolbox/coder/coder/resources/jQuery/jquery.hotkeys-0.7.8.js"></script>
+<script type="text/javascript" src="file:////usr/local/MATLAB/R2011b/toolbox/coder/coder/resources/eml_report_interactions.js"></script>
+<script type="text/javascript" src="file:////usr/local/MATLAB/R2011b/toolbox/coder/coder/resources/eml_report_layout.js"></script>
+<script type="text/javascript">
+var localizedMessages = {
+    callSelectPrompt: "Select a function call:",
+    callSelectSource: "Calls from this function",
+    callSelectTarget: "Calls to this function",
+    infoForExpression: "Information for the selected expression:",
+    infoForVarHere: "Information for the selected variable:",
+    infoForVarThere: "Information for the selected variable:",
+    infoForVarNone: "This variable does not have information associated with it.",
+    infoForFilter: "Matched {0}/{1} functions, {2}/{3} methods"
+};
+var keyBindings = {
+        selectMCodeTab: "Ctrl+m",
+    selectCallStackTab: "Ctrl+k",
+        selectCCodeTab: "Ctrl+c",
+     selectCenterPanel: "Ctrl+w",
+      selectSummaryTab: "Ctrl+s",
+     selectMessagesTab: "Ctrl+a",
+    selectWatchListTab: "Ctrl+v",
+     selectBuildLogTab: "Ctrl+t"
+};
+var functionInfoTable = {
+ MATLABcode1: "sphere_on_sphere1_mcode.html",
+ fpath1: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/examples/sphere_on_sphere.m",
+ lines1: [1, 6, 38],
+ watch1: "sphere_on_sphere1_watch.html",
+ title1: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/examples/sphere_on_sphere.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/examples/sphere_on_sphere.m')\">sphere_on_sphere</a></span>",
+ tcall1: [  ],
+ scall1: [ [ "From line 9 to Simulator", "12#srcline7" ], [ "From line 18 to Body_sphere > 1", "40#srcline6" ], [ "From line 24 to Body_sphere > 2", "41#srcline6" ], [ "From line 28 to Body_plane", "60#srcline3" ], [ "From line 30 to sim_addBody", "89#srcline11" ], [ "From line 33 to sim_run", "98#srcline7" ] ],
+ MATLABcode12: "Simulator12_mcode.html",
+ fpath12: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/Simulator.m",
+ lines12: [1, 7, 78],
+ watch12: "Simulator12_watch.html",
+ title12: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/Simulator.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/Simulator.m')\">Simulator</a></span>",
+ tcall12: [ [ "From sphere_on_sphere line 9", "1#F12N5:B10" ] ],
+ scall12: [  ],
+ MATLABcode31: "Body31_mcode.html",
+ fpath31: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body.m",
+ lines31: [1, 4, 89],
+ watch31: "Body31_watch.html",
+ title31: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body.m')\">Body</a></span>",
+ tcall31: [ [ "From Body_sphere > 1 line 8", "40#F31N2:B12" ], [ "From Body_sphere > 2 line 8", "41#F31N2:B12" ], [ "From Body_plane line 5", "60#F31N2:B12" ] ],
+ scall31: [  ],
+ MATLABcode40: "Body_sphere40_mcode.html",
+ fpath40: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_sphere.m",
+ lines40: [1, 6, 15],
+ watch40: "Body_sphere40_watch.html",
+ title40: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_sphere.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_sphere.m')\">Body_sphere &gt; 1</a></span>",
+ tcall40: [ [ "From sphere_on_sphere line 18", "1#F40N4:B29" ] ],
+ scall40: [ [ "From line 8 to Body", "31#srcline4" ] ],
+ MATLABcode41: "Body_sphere41_mcode.html",
+ fpath41: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_sphere.m",
+ lines41: [1, 6, 15],
+ watch41: "Body_sphere41_watch.html",
+ title41: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_sphere.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_sphere.m')\">Body_sphere &gt; 2</a></span>",
+ tcall41: [ [ "From sphere_on_sphere line 24", "1#F41N4:B71" ] ],
+ scall41: [ [ "From line 8 to Body", "31#srcline4" ] ],
+ MATLABcode60: "Body_plane60_mcode.html",
+ fpath60: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_plane.m",
+ lines60: [1, 3, 17],
+ watch60: "Body_plane60_watch.html",
+ title60: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_plane.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_plane.m')\">Body_plane</a></span>",
+ tcall60: [ [ "From sphere_on_sphere line 28", "1#F60N3:B97" ] ],
+ scall60: [ [ "From line 5 to Body", "31#srcline4" ] ],
+ MATLABcode85: "qtmultiply85_mcode.html",
+ fpath85: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/funcs/qt/qtmultiply.m",
+ lines85: [1, 3, 19],
+ watch85: "qtmultiply85_watch.html",
+ title85: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/funcs/qt/qtmultiply.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/funcs/qt/qtmultiply.m')\">qtmultiply</a></span>",
+ tcall85: [ [ "From body_updatePosition line 42", "86#F85N11:B159" ] ],
+ scall85: [  ],
+ MATLABcode86: "body_updatePosition86_mcode.html",
+ fpath86: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updatePosition.m",
+ lines86: [1, 10, 70],
+ watch86: "body_updatePosition86_watch.html",
+ title86: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updatePosition.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updatePosition.m')\">body_updatePosition</a></span>",
+ tcall86: [ [ "From sim_addBody line 28", "89#F86N8:B77" ] ],
+ scall86: [ [ "From line 42 to qtmultiply", "85#srcline3" ] ],
+ MATLABcode88: "body_updateMesh88_mcode.html",
+ fpath88: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updateMesh.m",
+ lines88: [1, 5, 48],
+ watch88: "body_updateMesh88_watch.html",
+ title88: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updateMesh.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updateMesh.m')\">body_updateMesh</a></span>",
+ tcall88: [ [ "From sim_addBody line 30", "89#F88N7:B98" ] ],
+ scall88: [  ],
+ MATLABcode89: "sim_addBody89_mcode.html",
+ fpath89: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_addBody.m",
+ lines89: [1, 11, 48],
+ watch89: "sim_addBody89_watch.html",
+ title89: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_addBody.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_addBody.m')\">sim_addBody</a></span>",
+ tcall89: [ [ "From sphere_on_sphere line 30", "1#F89N12:B117" ] ],
+ scall89: [ [ "From line 28 to body_updatePosition", "86#srcline10" ], [ "From line 30 to body_updateMesh", "88#srcline5" ] ],
+ MATLABcode90: "sim_draw_init90_mcode.html",
+ fpath90: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_draw_init.m",
+ lines90: [1, 8, 85],
+ watch90: "sim_draw_init90_watch.html",
+ title90: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_draw_init.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_draw_init.m')\">sim_draw_init</a></span>",
+ tcall90: [ [ "From sim_run line 11", "98#F90N13:B11" ] ],
+ scall90: [  ],
+ MATLABcode93: "preDynamics93_mcode.html",
+ fpath93: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/dynamics/preDynamics.m",
+ lines93: [1, 18, 168],
+ watch93: "preDynamics93_watch.html",
+ title93: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/dynamics/preDynamics.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/dynamics/preDynamics.m')\">preDynamics</a></span>",
+ tcall93: [ [ "From sim_run line 43", "98#F93N10:B92" ] ],
+ scall93: [  ],
+ MATLABcode94: "body_updateAllBodies94_mcode.html",
+ fpath94: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updateAllBodies.m",
+ lines94: [1, 7, 41],
+ watch94: "body_updateAllBodies94_watch.html",
+ title94: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updateAllBodies.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updateAllBodies.m')\">body_updateAllBodies</a></span>",
+ tcall94: [ [ "From sim_run line 49", "98#F94N6:B98" ] ],
+ scall94: [  ],
+ MATLABcode97: "joint_correction97_mcode.html",
+ fpath97: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/joints/joint_correction.m",
+ lines97: [1, 8, 184],
+ watch97: "joint_correction97_watch.html",
+ title97: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/joints/joint_correction.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/joints/joint_correction.m')\">joint_correction</a></span>",
+ tcall97: [ [ "From sim_run line 53", "98#F97N9:B109" ] ],
+ scall97: [  ],
+ MATLABcode98: "sim_run98_mcode.html",
+ fpath98: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_run.m",
+ lines98: [1, 7, 88],
+ watch98: "sim_run98_watch.html",
+ title98: "Function: <span class='functionname'><a title='/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_run.m' class='functionlink' href=\"matlab: open('/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_run.m')\">sim_run</a></span>",
+ tcall98: [ [ "From sphere_on_sphere line 33", "1#F98N14:B128" ] ],
+ scall98: [ [ "From line 11 to sim_draw_init", "90#srcline8" ], [ "From line 43 to preDynamics", "93#srcline18" ], [ "From line 49 to body_updateAllBodies", "94#srcline7" ], [ "From line 53 to joint_correction", "97#srcline8" ] ],
+ rootFcnID: "1",
+ htmlRoot: "/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere/html/"
+};
+var scriptInfoTable = {
+ fpath1: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/examples/sphere_on_sphere.m",
+ fpath2: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m",
+ fpath3: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_scalexp_alloc.m",
+ fpath4: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elfun/eml_scalar_floor.m",
+ fpath5: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/ops/power.m",
+ fpath6: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/ops/mpower.m",
+ fpath7: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/Simulator.m",
+ fpath8: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_assert_valid_size_arg.m",
+ fpath9: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elmat/isinf.m",
+ fpath10: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/ops/mtimes.m",
+ fpath11: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_index_class.m",
+ fpath12: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elmat/intmax.m",
+ fpath13: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_is_float_class.m",
+ fpath14: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_min_or_max.m",
+ fpath15: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/datafun/min.m",
+ fpath16: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elmat/eye.m",
+ fpath17: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body.m",
+ fpath18: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_div.m",
+ fpath19: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/ops/rdivide.m",
+ fpath20: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/ops/mrdivide.p",
+ fpath21: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_sphere.m",
+ fpath22: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m",
+ fpath23: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elmat/realmin.m",
+ fpath24: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_index_minus.m",
+ fpath25: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_index_times.m",
+ fpath26: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_index_plus.m",
+ fpath27: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elfun/eml_scalar_abs.m",
+ fpath28: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elfun/abs.m",
+ fpath29: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xnrm2.m",
+ fpath30: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/blas/internal/eml_blas_xnrm2.m",
+ fpath31: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/blas/eml_xnrm2.m",
+ fpath32: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/matfun/norm.m",
+ fpath33: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/Body_plane.m",
+ fpath34: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elmat/length.m",
+ fpath35: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elfun/eml_scalar_cos.m",
+ fpath36: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elfun/cos.m",
+ fpath37: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elfun/eml_scalar_sin.m",
+ fpath38: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/elfun/sin.m",
+ fpath39: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/funcs/qt/qtmultiply.m",
+ fpath40: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updatePosition.m",
+ fpath41: "/usr/local/MATLAB/R2011b/toolbox/eml/lib/matlab/eml/eml_strcmp.m",
+ fpath42: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updateMesh.m",
+ fpath43: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_addBody.m",
+ fpath44: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_draw_init.m",
+ fpath45: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/dynamics/preDynamics.m",
+ fpath46: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/body_geometries/bodyFunctions/body_updateAllBodies.m",
+ fpath47: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/joints/joint_correction.m",
+ fpath48: "/home/ying/Documents/lockheed/rpi-matlab-simulator_for_codegen/engine/simulation/sim_run.m"
+};
+</script>
+</head>
+<body>
+
+<div class="west">
+<ul class="ui-tabs-nav">
+<li class="ui-tabs-nav-item ui-tabs-selected"><span class="tab-link" id="MATLABcode"><span>MATLAB code</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="callstack"><span>Call stack</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="ccode"><span>C code</span></span></li>
+</ul>
+<div id="MATLABcodebody" class="ui-tabs-panel">
+<!-- Begin Filter -->
+<div class="grayline methodset" onclick="filterClick(event);">
+<a class="collapsed">Filter</a>
+</div>
+<div id="filterbody" class="hidden">
+<table class="myfunc-filter-tbl">
+<tr>
+<td title="Use this filter to display only functions and methods that contain variables or expressions with the specified attributes." colspan="2" class="checkbox">
+<div class="myfunc-filterby-chk"><input type="checkbox" class="filterenable" />
+<div class="filter-enable-lbl">Filter functions and methods</div></div></td></tr><tr>
+<td class="label"><div class="myfunc-filterby-lbl">Filter by:</div></td>
+<td class="select">
+<div class="filters">
+<select class="myfunc-filterby">
+<option id="size">Size</option>
+<option id="complex">Complexity</option>
+<option id="class">Class</option>
+</select>
+</div>
+</td>
+</tr>
+
+<tr>
+<td class="label"><div class="myfunc-filterstr-lbl">Filter:</div></td>
+<td class="input"><div>
+
+<div class="size">
+<select class="myfunc-filter size">
+<option value="1 12 31 40 41 60 86 88 89 90 93 94 97 98">0 x 0</option>
+<option value="1 12 86 89 90 93 94 97 98">1 x 0</option>
+<option value="1 12 31 40 41 60 86 88 89 90 93 94 97 98">1 x 1</option>
+<option value="1 31 40 41 60 86 88 89">1 x 3</option>
+<option value="1 31 40 41 60 86 88 89">1 x 4</option>
+<option value="31">1 x 7</option>
+<option value="1 40 41 60 86 88 89">1 x <b>:</b>7</option>
+<option value="89">1 x <b>:</b>?</option>
+<option value="1 12 31 40 41 60 86 88 89 90 93 94 97 98">3</option>
+<option value="1 31 40 41 60 86 88 89">3 x 3</option>
+<option value="1 31 40 41 60 85 86 88 89">4</option>
+<option value="1 31 40 41 60 86 88 89">6</option>
+<option value="1 60 86 88 89"><b>:</b>3 x <b>:</b>3</option>
+<option value="89"><b>:</b>? x <b>:</b>?</option>
+</select>
+</div>
+
+<div class="complex">
+<select class="myfunc-filter complex">
+<option value="">Complex values</option>
+<option value="1 12 31 40 41 60 85 86 88 89 90 93 94 97 98">Real values</option>
+</select>
+</div>
+<!-- Begin Class Filter -->
+<div class="class">
+<select class="myfunc-filter class">
+<option value="12 86">cell</option>
+<option value="1 12 31 40 41 60 86 88 89 90 93 94 97 98">char</option>
+<option value="1 12 31 40 41 60 85 86 88 89 90 93 94 97 98">double</option>
+<option value="1 12 31 40 41 60 86 88 89 90 93 94 97 98">logical</option>
+<option value="1 12 31 40 41 60 86 88 89 90 93 94 97 98">struct</option>
+</select>
+</div>
+<!-- End Class Filter -->
+</div>
+</td>
+</tr>
+</table>
+<div class="myfunc-count"></div>
+</div>
+<!-- End Filter -->
+<div class="grayline methodset" onmouseover="callTreeMouseOver(event);" onmouseout="callTreeMouseOut(event);" onclick="functionSetClick(event);">
+<a class="expanded">Functions</a>
+</div>
+<!-- Begin Function Tree -->
+<div id="functiontreebody">
+<div class="functionwrapper" onmouseover="callTreeMouseOver(event);" onmouseout="callTreeMouseOut(event);" onclick="functionTreeClick(event);">
+<ol class="tree">
+<!-- Begin Function Tree Roots -->
+<li class="leaf  passed"><a href="#" class="fcn" id="F31N2:F1">Body</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F60N3:F2">Body_plane</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F40N4:F3">Body_sphere &gt; 1</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F41N4:F4">Body_sphere &gt; 2</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F12N5:F5">Simulator</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F94N6:F6">body_updateAllBodies</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F88N7:F7">body_updateMesh</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F86N8:F8">body_updatePosition</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F97N9:F9">joint_correction</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F93N10:F10">preDynamics</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F85N11:F11">qtmultiply</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F89N12:F12">sim_addBody</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F90N13:F13">sim_draw_init</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F98N14:F14">sim_run</a></li>
+<li class="leaf  passed"><a href="#" class="fcn" id="F1N15:F15">sphere_on_sphere</a></li>
+<!-- End Function Tree Roots -->
+</ol>
+<!-- Function Tree Nodes -->
+<div class="functiontreenodes hidden">
+</div>
+<!-- End Function Tree Nodes -->
+</div>
+</div>
+<!-- End Function Tree -->
+</div>
+<!-- Begin Call Tree -->
+<div id="callstackbody" class="ui-tabs-panel hidden">
+<div class="treewrapper" onmouseover="callTreeMouseOver(event);" onmouseout="callTreeMouseOut(event);" onclick="callTreeClick(event);">
+<ol class="tree">
+<!-- Call Tree Root -->
+<li class="node collapsed passed"><a href="#" class="fcn" id="F1N15:L1">sphere_on_sphere</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn" id="F12N5:L2">Simulator</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F40N4:L3">Body_sphere &gt; 1</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F41N4:L4">Body_sphere &gt; 2</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F60N3:L5">Body_plane</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F89N12:L6">sim_addBody</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F98N14:L7">sim_run</a></li>
+</ul>
+</li>
+</ol>
+<!-- Call Tree Nodes -->
+<div class="callstacknodes hidden">
+<ol class="callstacknode" id="callstacknode1">
+
+<li class="node collapsed passed"><a href="#" class="fcn" id="F1N15:l1">sphere_on_sphere</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn" id="F12N5:l2">Simulator</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F40N4:l3">Body_sphere &gt; 1</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F41N4:l4">Body_sphere &gt; 2</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F60N3:l5">Body_plane</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F89N12:l6">sim_addBody</a></li>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F98N14:l7">sim_run</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode12">
+
+<li class="leaf passed"><a href="#" class="fcn" id="F12N5:l8">Simulator</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode31">
+
+<li class="leaf passed"><a href="#" class="fcn" id="F31N2:l9">Body</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode40">
+
+<li class="node collapsed passed"><a href="#" class="fcn" id="F40N4:l10">Body_sphere &gt; 1</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn" id="F31N2:l11">Body</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode41">
+
+<li class="node collapsed passed"><a href="#" class="fcn" id="F41N4:l12">Body_sphere &gt; 2</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn" id="F31N2:l13">Body</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode60">
+
+<li class="node collapsed passed"><a href="#" class="fcn" id="F60N3:l14">Body_plane</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn" id="F31N2:l15">Body</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode85">
+
+<li class="leaf passed"><a href="#" class="fcn" id="F85N11:l16">qtmultiply</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode86">
+
+<li class="node collapsed passed"><a href="#" class="fcn" id="F86N8:l17">body_updatePosition</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn" id="F85N11:l18">qtmultiply</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode88">
+
+<li class="leaf passed"><a href="#" class="fcn" id="F88N7:l19">body_updateMesh</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode89">
+
+<li class="node collapsed passed"><a href="#" class="fcn" id="F89N12:l20">sim_addBody</a>
+<ul>
+<li class="node collapsed passed"><a href="#" class="fcn" id="F86N8:l21">body_updatePosition</a></li>
+<li class="leaf passed"><a href="#" class="fcn" id="F88N7:l22">body_updateMesh</a></li>
+</ul>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode90">
+
+<li class="leaf passed"><a href="#" class="fcn" id="F90N13:l23">sim_draw_init</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode93">
+
+<li class="leaf passed"><a href="#" class="fcn" id="F93N10:l24">preDynamics</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode94">
+
+<li class="leaf passed"><a href="#" class="fcn" id="F94N6:l25">body_updateAllBodies</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode97">
+
+<li class="leaf passed"><a href="#" class="fcn" id="F97N9:l26">joint_correction</a>
+</li>
+</ol>
+<ol class="callstacknode" id="callstacknode98">
+
+<li class="node collapsed passed"><a href="#" class="fcn" id="F98N14:l27">sim_run</a>
+<ul>
+<li class="leaf passed"><a href="#" class="fcn" id="F90N13:l28">sim_draw_init</a></li>
+<li class="leaf passed"><a href="#" class="fcn" id="F93N10:l29">preDynamics</a></li>
+<li class="leaf passed"><a href="#" class="fcn" id="F94N6:l30">body_updateAllBodies</a></li>
+<li class="leaf passed"><a href="#" class="fcn" id="F97N9:l31">joint_correction</a></li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<!-- End Call Tree -->
+<div id="ccodebody" class="ui-tabs-panel hidden">
+<table class="myfunc-list" cellspacing="0" cellpadding="0" onclick="cFileClick(event);">
+<tbody>
+<tr class="subtitle"><td><div><b>Target Source Files</b></div></td></tr>
+<tr class="ccode" id="Body_c.html"><td class="ccode"><a href="#">Body.c</a></td></tr>
+<tr class="ccode" id="Body_h.html"><td class="ccode"><a href="#">Body.h</a></td></tr>
+<tr class="ccode" id="Body_sphere_c.html"><td class="ccode"><a href="#">Body_sphere.c</a></td></tr>
+<tr class="ccode" id="Body_sphere_h.html"><td class="ccode"><a href="#">Body_sphere.h</a></td></tr>
+<tr class="ccode" id="Simulator_c.html"><td class="ccode"><a href="#">Simulator.c</a></td></tr>
+<tr class="ccode" id="Simulator_h.html"><td class="ccode"><a href="#">Simulator.h</a></td></tr>
+<tr class="ccode" id="rtGetInf_c.html"><td class="ccode"><a href="#">rtGetInf.c</a></td></tr>
+<tr class="ccode" id="rtGetInf_h.html"><td class="ccode"><a href="#">rtGetInf.h</a></td></tr>
+<tr class="ccode" id="rtGetNaN_c.html"><td class="ccode"><a href="#">rtGetNaN.c</a></td></tr>
+<tr class="ccode" id="rtGetNaN_h.html"><td class="ccode"><a href="#">rtGetNaN.h</a></td></tr>
+<tr class="ccode" id="rt_nonfinite_c.html"><td class="ccode"><a href="#">rt_nonfinite.c</a></td></tr>
+<tr class="ccode" id="rt_nonfinite_h.html"><td class="ccode"><a href="#">rt_nonfinite.h</a></td></tr>
+<tr class="ccode" id="rtwtypes_h.html"><td class="ccode"><a href="#">rtwtypes.h</a></td></tr>
+<tr class="ccode" id="sphere_on_sphere_c.html"><td class="ccode"><a href="#">sphere_on_sphere.c</a></td></tr>
+<tr class="ccode" id="sphere_on_sphere_h.html"><td class="ccode"><a href="#">sphere_on_sphere.h</a></td></tr>
+<tr class="ccode" id="sphere_on_sphere_initialize_c.html"><td class="ccode"><a href="#">sphere_on_sphere_initialize.c</a></td></tr>
+<tr class="ccode" id="sphere_on_sphere_initialize_h.html"><td class="ccode"><a href="#">sphere_on_sphere_initialize.h</a></td></tr>
+<tr class="ccode" id="sphere_on_sphere_terminate_c.html"><td class="ccode"><a href="#">sphere_on_sphere_terminate.c</a></td></tr>
+<tr class="ccode" id="sphere_on_sphere_terminate_h.html"><td class="ccode"><a href="#">sphere_on_sphere_terminate.h</a></td></tr>
+<tr class="ccode" id="sphere_on_sphere_types_h.html"><td class="ccode"><a href="#">sphere_on_sphere_types.h</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="aux hidden">
+<div class="tooltips">
+<div class="tooltip" id="TT1"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT2"><table class="tooltip"><tr><th>Size</th><td>1 x 2</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT3"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>coder.internal.indexInt</td></tr></table></div>
+<div class="tooltip" id="TT4"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>logical</td></tr></table></div>
+<div class="tooltip" id="TT5"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT6"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>struct</td></tr></table></div>
+<div class="tooltip" id="TT7"><table class="tooltip"><tr><th>Size</th><td>3</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT8"><table class="tooltip"><tr><th>Size</th><td>1 x 0</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT9"><table class="tooltip"><tr><th>Size</th><td>0 x 0</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT10"><table class="tooltip"><tr><th>Size</th><td>1 x 5</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT11"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>int32</td></tr></table></div>
+<div class="tooltip" id="TT12"><table class="tooltip"><tr><th>Size</th><td>1 x 6</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT13"><table class="tooltip"><tr><th>Size</th><td>1 x 3</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT14"><table class="tooltip"><tr><th>Size</th><td>1 x 3</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT15"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>function_handle</td></tr></table></div>
+<div class="tooltip" id="TT16"><table class="tooltip"><tr><th>Size</th><td>3 x 3</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT17"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>struct</td></tr></table></div>
+<div class="tooltip" id="TT18"><table class="tooltip"><tr><th>Size</th><td>1 x 4</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT19"><table class="tooltip"><tr><th>Size</th><td>1 x 7</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT20"><table class="tooltip"><tr><th>Size</th><td>4</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT21"><table class="tooltip"><tr><th>Size</th><td>6</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT22"><table class="tooltip"><tr><th>Size</th><td>1 x 3</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT23"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>struct</td></tr></table></div>
+<div class="tooltip" id="TT24"><table class="tooltip"><tr><th>Size</th><td>1 x <b>:</b>?</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT25"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>struct</td></tr></table></div>
+<div class="tooltip" id="TT26"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x <b>:</b>?</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT27"><table class="tooltip"><tr><th>Size</th><td>1 x 3</td></tr><tr><th>Class</th><td>struct</td></tr></table></div>
+<div class="tooltip" id="TT28"><table class="tooltip"><tr><th>Size</th><td>1 x 2</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT29"><table class="tooltip"><tr><th>Size</th><td><b>:</b>? x 0</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT30"><table class="tooltip"><tr><th>Size</th><td><b>:</b>?</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT31"><table class="tooltip"><tr><th>Size</th><td>0</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT32"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>struct</td></tr></table></div>
+<div class="tooltip" id="TT33"><table class="tooltip"><tr><th>Size</th><td>1 x <b>:</b>7</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT34"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>struct</td></tr></table></div>
+<div class="tooltip" id="TT35"><table class="tooltip"><tr><th>Size</th><td><b>:</b>3 x <b>:</b>3</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT36"><table class="tooltip"><tr><th>Size</th><td>1 x 3</td></tr><tr><th>Class</th><td>struct</td></tr></table></div>
+<div class="tooltip" id="TT37"><table class="tooltip"><tr><th>Size</th><td>1 x <b>:</b>6</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+<div class="tooltip" id="TT38"><table class="tooltip"><tr><th>Size</th><td><b>:</b>1 x <b>:</b>1</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT39"><table class="tooltip"><tr><th>Size</th><td><b>:</b>1</td></tr><tr><th>Complex</th><td>No</td></tr><tr><th>Class</th><td>double</td></tr></table></div>
+<div class="tooltip" id="TT40"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>unknown</td></tr></table></div>
+<div class="tooltip" id="TT41"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>unknown</td></tr></table></div>
+<div class="tooltip" id="TT42"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>unknown</td></tr></table></div>
+<div class="tooltip" id="TT43"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>unknown</td></tr></table></div>
+<div class="tooltip" id="TT44"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>unknown</td></tr></table></div>
+<div class="tooltip" id="TT45"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>unknown</td></tr></table></div>
+<div class="tooltip" id="TT46"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>unknown</td></tr></table></div>
+<div class="tooltip" id="TT47"><table class="tooltip"><tr><th>Size</th><td>1 x 0</td></tr><tr><th>Class</th><td>cell</td></tr></table></div>
+<div class="tooltip" id="TT48"><table class="tooltip"><tr><th>Size</th><td>1 x 1</td></tr><tr><th>Class</th><td>char</td></tr></table></div>
+</div>
+</div>
+
+<div class="south">
+<ul class="ui-tabs-nav">
+<li class="ui-tabs-nav-item ui-tabs-selected"><span class="tab-link" id="summary"><span>Summary</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="messages"><span>All Messages (0)</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="watchlist"><span>Variables</span></span></li>
+<li class="ui-tabs-nav-item hidden"><span class="tab-link" id="watchload"><span>Variables</span></span></li>
+<li class="ui-tabs-nav-item"><span class="tab-link" id="buildlog1"><span>Target Build Log</span></span></li>
+</ul>
+
+<!-- Compilation Summary -->
+<div id="summarybody" class="ui-tabs-panel">
+<table cellpadding="1" cellspacing="4">
+<tr><td>C source code generated on:</td><td>18-Oct-2014 11:59:52</td></tr>
+<tr><td>Coding target:</td><td>Library</td></tr>
+<tr><td>Number of errors:</td><td><a href="javascript:selectMessagesTab();">0</a></td></tr>
+<tr><td>Number of warnings:</td><td><a href="javascript:selectMessagesTab();">0</a></td></tr>
+</table>
+<p/><p/><table>
+<tr><td><b>Tell Us What You Think</b></td></tr>
+<tr><td>We value your feedback. Please take a few minutes to answer this short questionnaire regarding the Code Generation Report.</td></tr>
+<tr><td><a href="matlab: web('http://www.customersat3.com/TakeSurvey.asp?si=ELu7GTnTYtk%3D','-browser');">&gt;&gt;Provide Feedback</a></td></tr>
+</table>
+</div>
+
+<!-- Message Table -->
+<div id="messagesbody" class="ui-tabs-panel hidden">
+<div>
+<div class="msgsuccess">Code generation successful. Click here to <a href="javaScript:selectSummaryTab();">view summary</a>.</div>
+</div>
+</div>
+<!-- Watchlist Table -->
+<div id="watchlistbody" class="ui-tabs-panel hidden">
+</div>
+<div id="watchloadbody" class="ui-tabs-panel hidden">
+Loading Variables table ...
+</div>
+
+<!-- Target Build Log -->
+<div id="buildlog1body" class="ui-tabs-panel hidden">
+<div class="grayline"></div>
+<table cellpadding="4" cellspacing="1"><tr>
+<td align="left" class="td-linebottomrt-gray" colspan="2">Build Parameters</td>
+</tr>
+<tr><td align="left" valign="top" class="td-linebottomrt">Build directory</td>
+<td align="left" valign="top" class="td-linebottomrt-link"><a href="matlab: cd('/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere')">/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere</a></td></tr>
+<tr><td align="left" valign="top" class="td-linebottomrt">Make wrapper</td>
+<td align="left" valign="top" class="td-linebottomrt-link">/usr/local/MATLAB/R2011b/bin/glnxa64/gmake -f sphere_on_sphere_rtw.mk  GENERATE_REPORT=1 ADD_MDL_NAME_TO_GLOBALS=0</td></tr>
+<tr><td align="left" valign="top" class="td-linebottomrt">Make command</td>
+<td align="left" valign="top" class="td-linebottomrt-link">/usr/local/MATLAB/R2011b/bin/glnxa64/gmake -f sphere_on_sphere_rtw.mk  GENERATE_REPORT=1 ADD_MDL_NAME_TO_GLOBALS=0</td></tr>
+</table>
+<br/>
+<table border="1" cellpadding="4" cellspacing="1" width="100%">
+<tr><td align="left" class="td-linebottomrt-gray">Build Log</td></tr>
+<tr><td valign="top" class="td-script">
+<pre>
+<span class="td-line-number">    1   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "sphere_on_sphere.c"</span>
+<span class="td-line-number">    2   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "Simulator.c"</span>
+<span class="td-line-number">    3   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "Body_sphere.c"</span>
+<span class="td-line-number">    4   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "Body.c"</span>
+<span class="td-line-number">    5   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "sphere_on_sphere_initialize.c"</span>
+<span class="td-line-number">    6   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "sphere_on_sphere_terminate.c"</span>
+<span class="td-line-number">    7   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "rt_nonfinite.c"</span>
+<span class="td-line-number">    8   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "rtGetNaN.c"</span>
+<span class="td-line-number">    9   </span><span class="td-line-normal">gcc -c -ansi -pedantic -fwrapv   -DUSE_RTMODEL -O0 -fPIC -DMODEL=sphere_on_sphere -DRT -DNUMST=1 -DTID01EQ=0 -DNCSTATES=0 -DUNIX -DMT=0 -DHAVESTDIO  -I. -I/home/ying/Documents/lockheed -I/usr/local/MATLAB/R2011b/simulink/include -I/usr/local/MATLAB/R2011b/extern/include -I/usr/local/MATLAB/R2011b/rtw/c/src -I/usr/local/MATLAB/R2011b/rtw/c/src/ext_mode/common -I/home/ying/Documents/lockheed/codegen/lib/sphere_on_sphere        "rtGetInf.c"</span>
+<span class="td-line-number">   10   </span><span class="td-line-normal">ar ruvs sphere_on_sphere.a sphere_on_sphere.o Simulator.o Body_sphere.o Body.o sphere_on_sphere_initialize.o sphere_on_sphere_terminate.o rt_nonfinite.o rtGetNaN.o rtGetInf.o </span>
+<span class="td-line-number">   11   </span><span class="td-line-normal">ar: creating sphere_on_sphere.a</span>
+<span class="td-line-number">   12   </span><span class="td-line-normal">a - sphere_on_sphere.o</span>
+<span class="td-line-number">   13   </span><span class="td-line-normal">a - Simulator.o</span>
+<span class="td-line-number">   14   </span><span class="td-line-normal">a - Body_sphere.o</span>
+<span class="td-line-number">   15   </span><span class="td-line-normal">a - Body.o</span>
+<span class="td-line-number">   16   </span><span class="td-line-normal">a - sphere_on_sphere_initialize.o</span>
+<span class="td-line-number">   17   </span><span class="td-line-normal">a - sphere_on_sphere_terminate.o</span>
+<span class="td-line-number">   18   </span><span class="td-line-normal">a - rt_nonfinite.o</span>
+<span class="td-line-number">   19   </span><span class="td-line-normal">a - rtGetNaN.o</span>
+<span class="td-line-number">   20   </span><span class="td-line-normal">a - rtGetInf.o</span>
+<span class="td-line-number">   21   </span><span class="td-line-normal">### Created sphere_on_sphere.a</span>
+<span class="td-line-number">   22   </span><span class="td-line-normal">### Created library: sphere_on_sphere.a</span>
+</pre>
+</td></tr></table>
+
+</div>
+</div>
+<!-- Begin MATLAB Code Panel -->
+<div class="center">
+<div class="center-title">
+<div class="ui-tabs-nav-item ui-tabs-selected">
+<span class="functiontitle">
+</span>
+<!-- Begin Call Sites -->
+<span id="callsiteselecttable" class="call-sites-tbl">
+<span id="callsiteselectlabel" class="filtered">Calls:</span>
+<select id="callsiteselect" onchange="callSiteChange(event)">
+<option value="callsiteprompt">Select a function call:</option>
+</select>
+</span>
+<!-- End Call Sites -->
+</div>
+</div>
+<div class="ui-tabs-panel">
+<div class="code" onmouseover="mcodeMouseOver(event);" onmouseout="mcodeMouseOut(event);"onclick="mcodeClick(event);">
+</div>
+</div>
+</div>
+<!-- End MATLAB Code Panel -->
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="44,1" id="srcline1"> 1</a></span><span class="line"><span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,2" id="srcline2"> 2</a></span><span class="line"><span class="comment">% RPI-MATLAB-Simulator</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,3" id="srcline3"> 3</a></span><span class="line"><span class="comment">% http://code.google.com/p/rpi-matlab-simulator/</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,4" id="srcline4"> 4</a></span><span class="line"><span class="comment">%</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,5" id="srcline5"> 5</a></span><span class="line"><span class="comment">% This function initializes all of the graphics associated with a</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,6" id="srcline6"> 6</a></span><span class="line"><span class="comment">% simulation. </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,7" id="srcline7"> 7</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="44,8" id="srcline8"> 8</a></span><span class="line"><span class="keyword">function</span> <span class="var type1" id="S2T6U3">sim</span> = sim_draw_init( <span class="mxinfo" id="T6:U2"><span class="mxinfo" id="T6:U3"><span class="var type1" id="S2T6U6">sim</span></span></span> )</span></span>
+<span class="srcline"><span class="lineno"><a href="44,9" id="srcline9"> 9</a></span><span class="line"><span class="comment">%#codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,10" id="srcline10">10</a></span><span class="line">    <span class="comment">%figure();  hold on; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,11" id="srcline11">11</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="44,12" id="srcline12">12</a></span><span class="line">    <span class="comment">%% Init body graphics</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,13" id="srcline13">13</a></span><span class="line"><span class="comment">%     for b=1:length(sim.bodies)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,14" id="srcline14">14</a></span><span class="line"><span class="comment">%        sim.bodies(b) = body_draw_init(sim.bodies(b));  </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,15" id="srcline15">15</a></span><span class="line"><span class="comment">%     end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,16" id="srcline16">16</a></span><span class="line"><span class="comment">%     </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,17" id="srcline17">17</a></span><span class="line"><span class="comment">%     %% Init bounding box graphics</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,18" id="srcline18">18</a></span><span class="line"><span class="comment">%     if sim.drawBoundingBoxes </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,19" id="srcline19">19</a></span><span class="line"><span class="comment">%         Vbb = zeros(8,3); </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,20" id="srcline20">20</a></span><span class="line"><span class="comment">%         for b=1:sim.num_bodies</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,21" id="srcline21">21</a></span><span class="line"><span class="comment">%             M = sim.bodies(b).AABB_max;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,22" id="srcline22">22</a></span><span class="line"><span class="comment">%             m = sim.bodies(b).AABB_min; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,23" id="srcline23">23</a></span><span class="line"><span class="comment">%             Vbb(1,:) = [m(1) m(2) m(3)];  % Verts of BBox</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,24" id="srcline24">24</a></span><span class="line"><span class="comment">%             Vbb(2,:) = [m(1) M(2) m(3)];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,25" id="srcline25">25</a></span><span class="line"><span class="comment">%             Vbb(3,:) = [M(1) M(2) m(3)];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,26" id="srcline26">26</a></span><span class="line"><span class="comment">%             Vbb(4,:) = [M(1) m(2) m(3)];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,27" id="srcline27">27</a></span><span class="line"><span class="comment">%             Vbb(5,:) = [m(1) m(2) M(3)];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,28" id="srcline28">28</a></span><span class="line"><span class="comment">%             Vbb(6,:) = [m(1) M(2) M(3)];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,29" id="srcline29">29</a></span><span class="line"><span class="comment">%             Vbb(7,:) = [M(1) M(2) M(3)];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,30" id="srcline30">30</a></span><span class="line"><span class="comment">%             Vbb(8,:) = [M(1) m(2) M(3)];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,31" id="srcline31">31</a></span><span class="line"><span class="comment">%             Ebb = [ Vbb(1,:); Vbb(2,:)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,32" id="srcline32">32</a></span><span class="line"><span class="comment">%                     Vbb(3,:); Vbb(4,:)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,33" id="srcline33">33</a></span><span class="line"><span class="comment">%                     Vbb(1,:); Vbb(5,:)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,34" id="srcline34">34</a></span><span class="line"><span class="comment">%                     Vbb(6,:); Vbb(7,:)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,35" id="srcline35">35</a></span><span class="line"><span class="comment">%                     Vbb(8,:); Vbb(5,:)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,36" id="srcline36">36</a></span><span class="line"><span class="comment">%                     Vbb(6,:); Vbb(2,:)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,37" id="srcline37">37</a></span><span class="line"><span class="comment">%                     Vbb(3,:); Vbb(7,:)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,38" id="srcline38">38</a></span><span class="line"><span class="comment">%                     Vbb(8,:); Vbb(4,:) ];</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,39" id="srcline39">39</a></span><span class="line"><span class="comment">%             sim.bodies(b).bboxHandle = plot3(Ebb(:,1),Ebb(:,2),Ebb(:,3),'b');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,40" id="srcline40">40</a></span><span class="line"><span class="comment">%         end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,41" id="srcline41">41</a></span><span class="line"><span class="comment">%     end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,42" id="srcline42">42</a></span><span class="line"><span class="comment">%     </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,43" id="srcline43">43</a></span><span class="line"><span class="comment">%     %% Init joint graphics</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,44" id="srcline44">44</a></span><span class="line"><span class="comment">%     if sim.drawJoints</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,45" id="srcline45">45</a></span><span class="line"><span class="comment">%         for j=1:length(sim.joints)</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,46" id="srcline46">46</a></span><span class="line"><span class="comment">%            Jnt = sim.joints(j); </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,47" id="srcline47">47</a></span><span class="line"><span class="comment">%            p1 = Jnt.P1; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,48" id="srcline48">48</a></span><span class="line"><span class="comment">%            x1 = Jnt.X1;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,49" id="srcline49">49</a></span><span class="line"><span class="comment">%            y1 = Jnt.Y1;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,50" id="srcline50">50</a></span><span class="line"><span class="comment">%            z1 = Jnt.Z1; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,51" id="srcline51">51</a></span><span class="line"><span class="comment">%            p2 = Jnt.P2;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,52" id="srcline52">52</a></span><span class="line"><span class="comment">%            x2 = Jnt.X2;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,53" id="srcline53">53</a></span><span class="line"><span class="comment">%            y2 = Jnt.Y2;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,54" id="srcline54">54</a></span><span class="line"><span class="comment">%            z2 = Jnt.Z2; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,55" id="srcline55">55</a></span><span class="line"><span class="comment">%            </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,56" id="srcline56">56</a></span><span class="line"><span class="comment">%           Jnt.drawn = true; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,57" id="srcline57">57</a></span><span class="line"><span class="comment">%           Jnt.P1Handle = plot3(p1(1),p1(2),p1(3),'r*');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,58" id="srcline58">58</a></span><span class="line"><span class="comment">%           Jnt.P1_X_AxisHandle = plot3([p1(1) x1(1)],[p1(2) x1(2)],[p1(3) x1(3)],'r');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,59" id="srcline59">59</a></span><span class="line"><span class="comment">%           Jnt.P1_Y_AxisHandle = plot3([p1(1) y1(1)],[p1(2) y1(2)],[p1(3) y1(3)],'g');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,60" id="srcline60">60</a></span><span class="line"><span class="comment">%           Jnt.P1_Z_AxisHandle = plot3([p1(1) z1(1)],[p1(2) z1(2)],[p1(3) z1(3)],'b');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,61" id="srcline61">61</a></span><span class="line"><span class="comment">%           %Jnt.P1_Z_pointHandle = plot3(z1(1),z1(2),z1(3),'bo');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,62" id="srcline62">62</a></span><span class="line"><span class="comment">% </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,63" id="srcline63">63</a></span><span class="line"><span class="comment">%           Jnt.P2Handle = plot3(p2(1),p2(2),p2(3),'r*');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,64" id="srcline64">64</a></span><span class="line"><span class="comment">%           Jnt.P2_X_AxisHandle = plot3([p2(1) x2(1)],[p2(2) x2(2)],[p2(3) x2(3)],'r');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,65" id="srcline65">65</a></span><span class="line"><span class="comment">%           Jnt.P2_Y_AxisHandle = plot3([p2(1) y2(1)],[p2(2) y2(2)],[p2(3) y2(3)],'g');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,66" id="srcline66">66</a></span><span class="line"><span class="comment">%           Jnt.P2_Z_AxisHandle = plot3([p2(1) z2(1)],[p2(2) z2(2)],[p2(3) z2(3)],'b');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,67" id="srcline67">67</a></span><span class="line"><span class="comment">%           %Jnt.P2_Z_pointHandle = plot3(z2(1),z2(2),z2(3),'bo');</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,68" id="srcline68">68</a></span><span class="line"><span class="comment">% </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,69" id="srcline69">69</a></span><span class="line"><span class="comment">%           Jnt.labelHandle = text(p1(1),p1(2),p1(3)+0.5,['Joint ' num2str(Jnt.jointID)]);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,70" id="srcline70">70</a></span><span class="line"><span class="comment">% </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,71" id="srcline71">71</a></span><span class="line"><span class="comment">%           sim.joints(j) = Jnt; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,72" id="srcline72">72</a></span><span class="line"><span class="comment">%         end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,73" id="srcline73">73</a></span><span class="line"><span class="comment">%     end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,74" id="srcline74">74</a></span><span class="line"><span class="comment">%     </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,75" id="srcline75">75</a></span><span class="line"><span class="comment">%     %% Set default plot properties</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,76" id="srcline76">76</a></span><span class="line"><span class="comment">%     view(3); </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,77" id="srcline77">77</a></span><span class="line"><span class="comment">%     grid on; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,78" id="srcline78">78</a></span><span class="line"><span class="comment">%     axis equal; </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,79" id="srcline79">79</a></span><span class="line"><span class="comment">%     xlabel('X'); ylabel('Y'); zlabel('Z'); </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,80" id="srcline80">80</a></span><span class="line"><span class="comment">%     </span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,81" id="srcline81">81</a></span><span class="line"><span class="comment">%     if ~exist('OCTAVE_VERSION','var'), rotate3d; end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,82" id="srcline82">82</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="44,83" id="srcline83">83</a></span><span class="line"><span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="44,84" id="srcline84">84</a></span><span class="line"></span></span>
+</pre>
